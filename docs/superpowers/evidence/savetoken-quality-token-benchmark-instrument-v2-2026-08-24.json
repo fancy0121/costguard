@@ -1,0 +1,12 @@
+{
+  "status": "frozen",
+  "instrumentVersion": "quality-token-v2-r1-r5",
+  "frozenAt": "2026-08-24",
+  "changePolicy": "Do not change fixtures, evaluator, prompts, acceptance, or held-out cases in response to any model result. A new principled revision requires a new version and preserves this manifest.",
+  "fixture": "docs/superpowers/evidence/savetoken-quality-token-benchmark-fixtures-v2-2026-08-24.json",
+  "fixtureSha256": "2afc592b93ef9ba1de8427ad3f87ee6e541b02cb6071bda9b4f63dd08c5e9666",
+  "evaluator": "savetoken-runtime/src/benchmark/quality-token.ts",
+  "evaluatorSha256": "062ecfeb251796b861acb136bb75a7ab23231b541898ce891a4c052c96e63f8c",
+  "runner": "savetoken-runtime/scripts/run-deepseek-benchmark-side.ts",
+  "runnerSha256": "94aae69890a10c8e5ac28b4d55b4890fbe36c5616beb73a8be7f4b5a0c2483ea"
+}

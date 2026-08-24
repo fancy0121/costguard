@@ -1,0 +1,113 @@
+{
+  "date": "2026-08-13",
+  "endpoint": "loopback OpenCodex proxy",
+  "requestCount": 5,
+  "results": [
+    {
+      "route": "Sol",
+      "requestedModel": "openai/gpt-5.6-sol",
+      "httpStatus": 200,
+      "actualModel": "openai/gpt-5.6-sol",
+      "modelIdentityMatches": true,
+      "usage": {
+        "input_tokens": 17,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 11,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 28
+      },
+      "routeAdmission": "UNKNOWN",
+      "responseHash": "0cbb1336fe1bc27627565ffe8fdca16cf6bef52efc5275f8e58326975d93284c",
+      "status": "PRESENT"
+    },
+    {
+      "route": "Terra",
+      "requestedModel": "openai/gpt-5.6-terra",
+      "httpStatus": 200,
+      "actualModel": "openai/gpt-5.6-terra",
+      "modelIdentityMatches": true,
+      "usage": {
+        "input_tokens": 17,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 11,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 28
+      },
+      "routeAdmission": "UNKNOWN",
+      "responseHash": "9966e6a050cbc2477f2ac8bb4bf3d4a4df4cc8ca0d02f448f0ebebfeca989982",
+      "status": "PRESENT"
+    },
+    {
+      "route": "Luna",
+      "requestedModel": "openai/gpt-5.6-luna",
+      "httpStatus": 200,
+      "actualModel": "openai/gpt-5.6-luna",
+      "modelIdentityMatches": true,
+      "usage": {
+        "input_tokens": 17,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 11,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 28
+      },
+      "routeAdmission": "UNKNOWN",
+      "responseHash": "12feac50ea372762bafd669f72fdbb9a1f529288f951f8b83ce87a7f1bcad06c",
+      "status": "PRESENT"
+    },
+    {
+      "route": "DeepSeek",
+      "requestedModel": "deepseek/deepseek-v4-flash",
+      "httpStatus": 200,
+      "actualModel": "deepseek/deepseek-v4-flash",
+      "modelIdentityMatches": true,
+      "usage": {
+        "input_tokens": 98,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 30,
+        "output_tokens_details": {
+          "reasoning_tokens": 19
+        },
+        "total_tokens": 128
+      },
+      "routeAdmission": "UNKNOWN",
+      "responseHash": "5cd8c61f669e70b72a2596bf1e52a45d4528560f12eaeb88c2cac1c840181515",
+      "status": "PRESENT"
+    },
+    {
+      "route": "GLM",
+      "requestedModel": "zhipu-bigmodel/glm-5.2",
+      "httpStatus": 502,
+      "actualModel": "UNKNOWN",
+      "modelIdentityMatches": false,
+      "usage": "UNKNOWN",
+      "routeAdmission": {
+        "decidedAt": "2026-08-13T05:23:06.686Z",
+        "decidingTier": "glm-backup",
+        "requestedTier": "execution",
+        "selectedProviderTier": "glm-backup",
+        "escalationReasons": [],
+        "signalSource": "structured",
+        "taskTextHash": "cb5e8583ff92ce4a"
+      },
+      "responseHash": "052648c16207e25217d4d231ce2952d222f2680ae310ce57d94f963a4895ceee",
+      "status": "UNKNOWN"
+    }
+  ]
+}

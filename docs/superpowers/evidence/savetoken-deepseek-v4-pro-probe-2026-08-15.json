@@ -1,0 +1,110 @@
+{
+  "date": "2026-08-15",
+  "model": "deepseek/deepseek-v4-pro",
+  "requestCount": 4,
+  "results": [
+    {
+      "id": "P1",
+      "title": "v4-pro identity",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "facts": {
+        "model": "deepseek-v4-pro",
+        "outputText": "DEEPSEEK_PRO_OK",
+        "usage": {
+          "input_tokens": 93,
+          "output_tokens": 33,
+          "total_tokens": 126,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens_details": {
+            "reasoning_tokens": 26
+          }
+        }
+      }
+    },
+    {
+      "id": "P2-1",
+      "title": "v4-pro strict json_schema",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "facts": {
+        "parseOk": true,
+        "keys": [
+          "pages",
+          "title"
+        ],
+        "typesOk": true,
+        "rawText": "{\"title\":\"示例书\",\"pages\":123}",
+        "usage": {
+          "input_tokens": 111,
+          "output_tokens": 89,
+          "total_tokens": 200,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens_details": {
+            "reasoning_tokens": 78
+          }
+        }
+      }
+    },
+    {
+      "id": "P2-2",
+      "title": "v4-pro strict json_schema",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "facts": {
+        "parseOk": true,
+        "keys": [
+          "pages",
+          "title"
+        ],
+        "typesOk": true,
+        "rawText": "{\"title\":\"示例书籍\",\"pages\":300}",
+        "usage": {
+          "input_tokens": 111,
+          "output_tokens": 92,
+          "total_tokens": 203,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens_details": {
+            "reasoning_tokens": 81
+          }
+        }
+      }
+    },
+    {
+      "id": "P2-3",
+      "title": "v4-pro strict json_schema",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "facts": {
+        "parseOk": true,
+        "keys": [
+          "pages",
+          "title"
+        ],
+        "typesOk": true,
+        "rawText": "{\"title\":\"活着\",\"pages\":192}",
+        "usage": {
+          "input_tokens": 111,
+          "output_tokens": 127,
+          "total_tokens": 238,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens_details": {
+            "reasoning_tokens": 117
+          }
+        }
+      }
+    }
+  ]
+}

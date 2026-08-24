@@ -1,0 +1,152 @@
+{
+  "audit": {
+    "task": "SaveToken OpenCodex parity audit Task 1",
+    "scope": "Read-only audit of work/opencodex-upstream",
+    "created_on": "2026-08-08",
+    "claims_policy": "Facts are recorded only when supported by repository files or command output. Planned values and unknowns are labeled separately.",
+    "secret_policy": "No API keys, OAuth state, cookies, tokens, private configuration, or real user data were read into this artifact."
+  },
+  "upstream": {
+    "repository": "lidge-jun/opencodex",
+    "relative_path": "work/opencodex-upstream",
+    "package_name": "@bitkyc08/opencodex",
+    "package_version": "2.11.0",
+    "license": "MIT",
+    "license_file": "work/opencodex-upstream/LICENSE",
+    "license_file_sha256": "34012A5529AD1E574E84457A609F9EA3DF03C63D7C42C7E5F74EC14F438ED346",
+    "observed_branch": "main",
+    "observed_commit": "57140d6f06218d604ee139e5909a1b868bf7a84b",
+    "planned_commit": "57140d6f06218d604ee139e5909a1b868bf7a84b"
+  },
+  "git_evidence": {
+    "verification_method": "git -C work/opencodex-upstream plus explicit git --git-dir/work-tree fallback",
+    "status_short": "",
+    "status_is_clean": true,
+    "rev_parse_head": "57140d6f06218d604ee139e5909a1b868bf7a84b",
+    "branch_show_current": "main",
+    "note": "The current recheck returned empty status from both git -C and the explicit git-dir/work-tree form. The explicit form is retained as a reproducible fallback for this copied reference clone."
+  },
+  "inventory": {
+    "src_files": 490,
+    "tests_files": 652,
+    "gui_files": 390,
+    "docs_site_files": 399,
+    "scripts_files": 34,
+    "structure_files": 9,
+    "manifest_entries_hashed": 1941,
+    "source_manifest_sha256": "6B1F8A3349F1B788998F95A56A4BD74EDFB1FA8EB52D478B328BA485B3A84410"
+  },
+  "package_contract": {
+    "runtime": "Bun-native TypeScript with ES modules",
+    "entrypoints": {
+      "main": "./bin/package-main.mjs",
+      "cli": "./bin/ocx.mjs",
+      "bun_export": "./src/index.ts"
+    },
+    "scripts": {
+      "dev": "bun run src/cli/index.ts start",
+      "dev:proxy": "bun run src/cli/index.ts start",
+      "dev:gui": "cd gui && bun run dev",
+      "start": "bun run src/cli/index.ts start",
+      "test": "bun scripts/test.ts",
+      "typecheck": "bun x tsc --noEmit",
+      "audit:high": "bun audit --audit-level=high && cd gui && bun audit --audit-level=high",
+      "privacy:scan": "bun scripts/privacy-scan.ts",
+      "generate:jawcode-metadata": "bun scripts/generate-jawcode-metadata.ts",
+      "build:gui": "cd gui && bun install --frozen-lockfile && bun run build && cd .. && bun run prepare:package",
+      "prepare:package": "bun scripts/prepare-package.ts",
+      "prepack": "bun run prepare:package",
+      "prepublishOnly": "bun run audit:high && bun run typecheck && bun run build:gui",
+      "release": "bun scripts/release.ts",
+      "release:watch": "bun scripts/release.ts watch",
+      "prepush": "bun run typecheck && bun run lint:gui:if-changed && bun run test && bun run privacy:scan && bun run doctor:gui:if-changed",
+      "lint:gui": "cd gui && bun run lint",
+      "lint:gui:if-changed": "bun scripts/lint-gui-if-changed.ts",
+      "postmerge": "bun scripts/build-gui-if-changed.ts",
+      "doctor:gui": "cd gui && bun run doctor",
+      "doctor:gui:full": "cd gui && bun run doctor:full",
+      "doctor:gui:if-changed": "bun scripts/doctor-gui-if-changed.ts",
+      "setup:hooks": "bun scripts/setup-hooks.ts"
+    },
+    "license_field": "MIT",
+    "repository_url": "https://github.com/lidge-jun/opencodex.git"
+  },
+  "structure_documents": [
+    {
+      "path": "work/opencodex-upstream/structure/00_overview.md",
+      "owned_subsystem": "Product boundary, local state, and non-negotiable invariants",
+      "invariants_to_preserve": [
+        "Responses is the primary data-plane surface; Chat Completions and Anthropic Messages are compatibility surfaces.",
+        "Management /api and data-plane /v1 admission are separate.",
+        "Native Codex remains usable after stop, restore, service stop, and uninstall.",
+        "Routed models use explicit provider/model identity and websocket support is opt-in."
+      ]
+    },
+    {
+      "path": "work/opencodex-upstream/structure/01_runtime.md",
+      "owned_subsystem": "Entrypoints, lifecycle, server endpoints, providers, and adapters",
+      "invariants_to_preserve": [
+        "The runtime is Bun-native and the published launcher resolves the runtime before application startup.",
+        "Startup and shutdown preserve Codex state and service/shim ownership.",
+        "Streaming must distinguish completed, incomplete, failed, and cancelled terminal states.",
+        "Provider and adapter output remains in the internal event contract until bridge translation."
+      ]
+    },
+    {
+      "path": "work/opencodex-upstream/structure/02_config-and-codex-home.md",
+      "owned_subsystem": "CODEX_HOME, configuration, injection, diagnostics, profiles, defaults, and restore",
+      "invariants_to_preserve": [
+        "An explicit CODEX_HOME is never overridden; diagnostics report the effective target.",
+        "Configuration writes are atomic and root TOML keys precede tables.",
+        "Environment-variable references do not persist resolved secrets.",
+        "Restore strips only marker-owned state and preserves later user edits."
+      ]
+    },
+    {
+      "path": "work/opencodex-upstream/structure/03_catalog-and-subagents.md",
+      "owned_subsystem": "Shared Codex catalog, backups, account namespaces, pool rotation, effort ceilings, multi-agent mode, and subagents",
+      "invariants_to_preserve": [
+        "The shared catalog is the source for CLI, TUI, App, and SDK visibility.",
+        "Pristine catalog backups are keyed per catalog and restore is catalog-specific.",
+        "Only the first five picker-visible catalog rows are advertised to spawn_agent.",
+        "Effort caps are ceilings and subagent defaults do not themselves cause delegation."
+      ]
+    },
+    {
+      "path": "work/opencodex-upstream/structure/04_transports-and-sidecars.md",
+      "owned_subsystem": "Responses HTTP/SSE, WebSocket, provider transports, adapters, images, web search, and vision sidecars",
+      "invariants_to_preserve": [
+        "WebSocket support is explicit and capability-advertised only when enabled.",
+        "Sidecars degrade to skipped capability or text markers instead of aborting the main request.",
+        "Tool calls, cancellation, error mapping, and terminal stream semantics remain compatible.",
+        "Sidecar backend selection is explicit where required and does not infer credentials into a different backend."
+      ]
+    },
+    {
+      "path": "work/opencodex-upstream/structure/05_gui-and-management-api.md",
+      "owned_subsystem": "Dashboard serving, authentication boundaries, management API ownership, GUI surfaces, usage, and diagnostics",
+      "invariants_to_preserve": [
+        "Management and data-plane credentials are independent and never cross-admitted.",
+        "Each management route has one owning module and writes preserve provider/catalog ownership.",
+        "Usage summaries never expose prompts and distinguish measured from unmeasured values.",
+        "Dashboard state reflects the same config and catalog invariants as the runtime."
+      ]
+    },
+    {
+      "path": "work/opencodex-upstream/structure/08_openai-provider-tiers.md",
+      "owned_subsystem": "OpenAI Pool/Direct account mode, API-key route, migration, account identity, and concurrency",
+      "invariants_to_preserve": [
+        "openai Codex-login and openai-apikey API-key routes remain separate and do not fall through into each other.",
+        "Pool is the default mode; Direct bypasses pool state and uses only the current main login.",
+        "Pause, quota, cooldown, health, affinity, priority, and pin boundaries remain distinct.",
+        "Credential-store refresh is generation-guarded and lost races do not overwrite newer state."
+      ]
+    }
+  ],
+  "validation_scope": {
+    "json_parse": "required after file creation",
+    "file_sha256": "computed after file creation and reported separately",
+    "upstream_mutation_check": "required before and after audit",
+    "full_upstream_test_suite": "NOT_TESTED in Task 1/2; no dependency installation or runtime test was required by these tasks"
+  }
+}

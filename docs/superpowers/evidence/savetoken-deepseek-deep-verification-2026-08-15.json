@@ -1,0 +1,166 @@
+{
+  "date": "2026-08-15",
+  "endpoint": "loopback OpenCodex proxy + SaveToken runtime",
+  "model": "deepseek/deepseek-v4-flash",
+  "requestCount": 9,
+  "results": [
+    {
+      "id": "T1",
+      "title": "single-turn identity",
+      "status": "PRESENT",
+      "httpStatus": 200,
+      "facts": {
+        "model": "deepseek-v4-flash",
+        "outputText": "DEEPSEEK_OK",
+        "usage": {
+          "input_tokens": 92,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 23,
+          "output_tokens_details": {
+            "reasoning_tokens": 17
+          },
+          "total_tokens": 115
+        }
+      }
+    },
+    {
+      "id": "T2",
+      "title": "streaming SSE terminal",
+      "status": "PRESENT",
+      "httpStatus": 200,
+      "facts": {
+        "frameCount": 40,
+        "hasDone": true,
+        "hasCompleted": true,
+        "model": "deepseek-v4-flash",
+        "outputText": "DEEPSEEK_STREAM_OK",
+        "usage": {
+          "input_tokens": 94,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 27,
+          "output_tokens_details": {
+            "reasoning_tokens": 19
+          },
+          "total_tokens": 121
+        }
+      }
+    },
+    {
+      "id": "T3",
+      "title": "single tool-call round trip",
+      "status": "PRESENT",
+      "httpStatus": 200,
+      "facts": {
+        "hasFunctionCall": true,
+        "callId": "call_00_BzzuZ5WzDtODqEGA0p0A9753",
+        "name": "get_weather",
+        "arguments": {
+          "city": "Paris"
+        },
+        "outputTypes": [
+          "reasoning",
+          "function_call"
+        ]
+      }
+    },
+    {
+      "id": "T4",
+      "title": "multi-turn tool conversation",
+      "status": "PRESENT",
+      "httpStatus": 200,
+      "facts": {
+        "firstTurnCallId": "call_00_fuzbtQUfgaf7ROMfq6wZ8297",
+        "finalText": "The weather in Paris is currently **sunny** with a temperature of **20°C**.",
+        "usage": {
+          "input_tokens": 450,
+          "input_tokens_details": {
+            "cached_tokens": 384
+          },
+          "output_tokens": 20,
+          "output_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "total_tokens": 470
+        }
+      }
+    },
+    {
+      "id": "T5",
+      "title": "structured JSON object",
+      "status": "PRESENT",
+      "httpStatus": 200,
+      "facts": {
+        "rawText": "{\"name\": \"example\", \"count\": 42, \"active\": true}",
+        "parseOk": true,
+        "parsed": {
+          "name": "example",
+          "count": 42,
+          "active": true
+        }
+      }
+    },
+    {
+      "id": "T6",
+      "title": "structured JSON schema",
+      "status": "FAILED",
+      "httpStatus": 200,
+      "facts": {
+        "rawText": "```json\n{\n  \"title\": \"The Silent Garden\",\n  \"author\": \"Elena Whitmore\",\n  \"year\": 2021,\n  \"genre\": \"Literary Fiction\",\n  \"pages\": 342,\n  \"publisher\": \"Hollow Oak Press\",\n  \"isbn\": \"978-1-234567-89-7\"\n}\n```",
+        "parseOk": false,
+        "hasRequired": false,
+        "extraKeys": [],
+        "schemaStrictlyHonored": false,
+        "parsed": "unparseable"
+      }
+    },
+    {
+      "id": "T7",
+      "title": "client cancellation",
+      "status": "PRESENT",
+      "httpStatus": 200,
+      "facts": {
+        "framesSeenBeforeAbort": 3,
+        "abortedWithoutFalseTerminal": true,
+        "upstreamPropagationVerified": false
+      }
+    },
+    {
+      "id": "T8",
+      "title": "invalid model error mapping",
+      "status": "PRESENT",
+      "httpStatus": 400,
+      "facts": {
+        "httpStatus": 400,
+        "bodyPreview": "{\"error\":{\"message\":\"Provider error 400: {\\\"error\\\":{\\\"message\\\":\\\"The supported API model names are deepseek-v4-pro or deepseek-v4-flash, but you passed does-not-exist.\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"type\":\"invalid_request_error\",\"code\":\"i",
+        "leakedInternalDetail": false
+      }
+    },
+    {
+      "id": "T9",
+      "title": "SaveToken runtime full chain",
+      "status": "PRESENT",
+      "httpStatus": 200,
+      "facts": {
+        "model": "deepseek/deepseek-v4-flash",
+        "outputText": "SAVETOKEN_CHAIN_OK",
+        "usage": {
+          "input_tokens": 96,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 26,
+          "output_tokens_details": {
+            "reasoning_tokens": 17
+          },
+          "total_tokens": 122
+        },
+        "routeAdmissionBody": "absent",
+        "routeAdmissionHeader": "{\"decidedAt\":\"2026-08-15T05:36:15.302Z\",\"decidingTier\":\"execution\",\"requestedTier\":\"execution\",\"selectedProviderTier\":\"execution\",\"escalationReasons\":[],\"signalSource\":\"structured\",\"taskTextHash\":\"9ef5dd1671908dd6\"}"
+      }
+    }
+  ]
+}

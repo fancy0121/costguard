@@ -1,0 +1,205 @@
+﻿[
+    {
+        "expected":  [
+                         {
+                             "date":  "2026-08-10",
+                             "status":  "paid",
+                             "name":  "Alice",
+                             "amount":  "19.95"
+                         },
+                         {
+                             "date":  "2026-08-11",
+                             "status":  "pending",
+                             "name":  "Bob",
+                             "amount":  "7.50"
+                         },
+                         {
+                             "date":  "2026-08-12",
+                             "status":  "paid",
+                             "name":  "Chen",
+                             "amount":  "0.00"
+                         },
+                         {
+                             "date":  "2026-08-13",
+                             "status":  "failed",
+                             "name":  "Dina",
+                             "amount":  "12.40"
+                         }
+                     ],
+        "acceptance":  [
+                           "valid JSON",
+                           "exactly four records",
+                           "deep equality with expected",
+                           "no prose"
+                       ],
+        "prompt":  "Extract these four records and return JSON only with fields name, date, status, amount. Preserve every value exactly: Alice | 2026-08-10 | paid | 19.95; Bob | 2026-08-11 | pending | 7.50; Chen | 2026-08-12 | paid | 0.00; Dina | 2026-08-13 | failed | 12.40.",
+        "id":  "X1-structured-extraction",
+        "class":  "extraction"
+    },
+    {
+        "id":  "X2-schema-tool-call",
+        "class":  "tool_call",
+        "prompt":  "Use the get_weather fixture tool for Beijing. Emit one function call and do not execute any real tool.",
+        "acceptance":  [
+                           "one function_call",
+                           "name get_weather",
+                           "deep equality of arguments",
+                           "no prose before call"
+                       ],
+        "expected":  {
+                         "arguments":  {
+                                           "city":  "Beijing"
+                                       },
+                         "name":  "get_weather"
+                     },
+        "tool":  {
+                     "name":  "get_weather",
+                     "type":  "function",
+                     "parameters":  {
+                                        "additionalProperties":  false,
+                                        "properties":  {
+                                                           "city":  {
+                                                                        "type":  "string"
+                                                                    }
+                                                       },
+                                        "type":  "object",
+                                        "required":  [
+                                                         "city"
+                                                     ]
+                                    }
+                 }
+    },
+    {
+        "expected":  [
+                         {
+                             "id":  "A",
+                             "label":  "keep"
+                         },
+                         {
+                             "id":  "B",
+                             "label":  "review"
+                         },
+                         {
+                             "id":  "C",
+                             "label":  "reject"
+                         },
+                         {
+                             "id":  "D",
+                             "label":  "review"
+                         },
+                         {
+                             "id":  "E",
+                             "label":  "review"
+                         },
+                         {
+                             "id":  "F",
+                             "label":  "keep"
+                         }
+                     ],
+        "acceptance":  [
+                           "six outputs",
+                           "labels in allowed set",
+                           "deep equality with expected",
+                           "valid JSON"
+                       ],
+        "prompt":  "Classify each record as keep, review, or reject and return JSON only. Rule: paid and amount \u003e= 10 is keep; pending is review; failed is reject. Records: A paid 12; B pending 4; C failed 20; D paid 9; E pending 15; F paid 10.",
+        "id":  "X3-classification",
+        "class":  "classification"
+    },
+    {
+        "expected":  [
+                         {
+                             "active":  true,
+                             "id":  1,
+                             "owner":  "Alice",
+                             "note":  "ok"
+                         },
+                         {
+                             "active":  false,
+                             "id":  2,
+                             "owner":  "Bob",
+                             "note":  null
+                         },
+                         {
+                             "active":  true,
+                             "id":  3,
+                             "owner":  "Chen",
+                             "note":  "queued"
+                         },
+                         {
+                             "active":  false,
+                             "id":  4,
+                             "owner":  "Dina",
+                             "note":  null
+                         },
+                         {
+                             "active":  true,
+                             "id":  5,
+                             "owner":  "Eli",
+                             "note":  "done"
+                         }
+                     ],
+        "acceptance":  [
+                           "five rows",
+                           "deep equality with expected",
+                           "nulls preserved",
+                           "ordering preserved"
+                       ],
+        "prompt":  "Transform this ordered table into JSON objects with fields id, owner, active, note. Preserve order and nulls exactly: 1|Alice|yes|ok; 2|Bob|no|NULL; 3|Chen|yes|queued; 4|Dina|no|NULL; 5|Eli|yes|done.",
+        "id":  "X4-transformation",
+        "class":  "transformation"
+    },
+    {
+        "expected":  [
+                         {
+                             "line":  2,
+                             "defect":  "assignment instead of comparison"
+                         },
+                         {
+                             "line":  3,
+                             "defect":  "xs[0] can be undefined"
+                         },
+                         {
+                             "line":  4,
+                             "defect":  "returns toUpperCase function not result"
+                         }
+                     ],
+        "acceptance":  [
+                           "exactly three defects",
+                           "line references 2,3,4",
+                           "actionable fixes",
+                           "no unrelated redesign"
+                       ],
+        "prompt":  "Review this synthetic TypeScript function and return exactly three actionable defects with line references; do not redesign it:\n1 function first(xs: string[]) {\n2   if (xs.length = 0) return undefined;\n3   const value = xs[0].trim();\n4   return value.toUpperCase;\n5 }",
+        "id":  "X5-bounded-code-review",
+        "class":  "code_review"
+    },
+    {
+        "expected":  [
+                         {
+                             "input":  "2026-08-10",
+                             "reason":  "valid date",
+                             "expected":  "Date"
+                         },
+                         {
+                             "input":  "2026-02-28",
+                             "reason":  "last valid Feb day in 2026",
+                             "expected":  "Date"
+                         },
+                         {
+                             "input":  "2026-02-30",
+                             "reason":  "invalid calendar date",
+                             "expected":  "null"
+                         }
+                     ],
+        "acceptance":  [
+                           "three rows",
+                           "expected values match",
+                           "reasons correct",
+                           "no implementation changes"
+                       ],
+        "prompt":  "Design a concise unit-test matrix for parseDate(value: string): Date|null. Include exactly one valid case (2026-08-10), one boundary case (2026-02-28), and one invalid case (2026-02-30). Return a table with input, expected result, and reason.",
+        "id":  "X6-bounded-test-design",
+        "class":  "test_design"
+    }
+]

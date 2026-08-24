@@ -1,0 +1,1203 @@
+{
+  "date": "2026-08-24",
+  "fixturePath": "C:\\Users\\ASUS\\Documents\\ChatGPT\\savetoken项目组\\_benchmark_run\\docs\\superpowers\\evidence\\savetoken-quality-token-benchmark-fixtures-v2-2026-08-24.json",
+  "model": "deepseek/deepseek-v4-flash",
+  "reasoningEffort": "default-not-overridden",
+  "fixtureSha256": "2afc592b93ef9ba1de8427ad3f87ee6e541b02cb6071bda9b4f63dd08c5e9666",
+  "evaluatorSha256": "062ecfeb251796b861acb136bb75a7ab23231b541898ce891a4c052c96e63f8c",
+  "taskCount": 24,
+  "passCount": 20,
+  "missingCount": 4,
+  "unknownCount": 0,
+  "categorySummaries": [
+    {
+      "category": "extraction",
+      "taskCount": 2,
+      "passCount": 2,
+      "missingCount": 0,
+      "unknownCount": 0,
+      "passRate": 1,
+      "usage": {
+        "inputTokens": 254,
+        "outputTokens": 212,
+        "reasoningTokens": 193,
+        "totalTokens": 466
+      }
+    },
+    {
+      "category": "classification",
+      "taskCount": 2,
+      "passCount": 2,
+      "missingCount": 0,
+      "unknownCount": 0,
+      "passRate": 1,
+      "usage": {
+        "inputTokens": 382,
+        "outputTokens": 139,
+        "reasoningTokens": 103,
+        "totalTokens": 521
+      }
+    },
+    {
+      "category": "transform",
+      "taskCount": 2,
+      "passCount": 2,
+      "missingCount": 0,
+      "unknownCount": 0,
+      "passRate": 1,
+      "usage": {
+        "inputTokens": 300,
+        "outputTokens": 133,
+        "reasoningTokens": 51,
+        "totalTokens": 433
+      }
+    },
+    {
+      "category": "summarization",
+      "taskCount": 2,
+      "passCount": 1,
+      "missingCount": 1,
+      "unknownCount": 0,
+      "passRate": 0.5,
+      "usage": {
+        "inputTokens": 271,
+        "outputTokens": 4151,
+        "reasoningTokens": 4110,
+        "totalTokens": 4422
+      }
+    },
+    {
+      "category": "strict-json-object",
+      "taskCount": 2,
+      "passCount": 2,
+      "missingCount": 0,
+      "unknownCount": 0,
+      "passRate": 1,
+      "usage": {
+        "inputTokens": 237,
+        "outputTokens": 108,
+        "reasoningTokens": 78,
+        "totalTokens": 345
+      }
+    },
+    {
+      "category": "strict-json-schema",
+      "taskCount": 2,
+      "passCount": 2,
+      "missingCount": 0,
+      "unknownCount": 0,
+      "passRate": 1,
+      "usage": {
+        "inputTokens": 228,
+        "outputTokens": 139,
+        "reasoningTokens": 110,
+        "totalTokens": 367
+      }
+    },
+    {
+      "category": "tool-single",
+      "taskCount": 2,
+      "passCount": 2,
+      "missingCount": 0,
+      "unknownCount": 0,
+      "passRate": 1,
+      "usage": {
+        "inputTokens": 728,
+        "outputTokens": 134,
+        "reasoningTokens": 44,
+        "totalTokens": 862
+      }
+    },
+    {
+      "category": "tool-multi-turn",
+      "taskCount": 2,
+      "passCount": 1,
+      "missingCount": 1,
+      "unknownCount": 0,
+      "passRate": 0.5,
+      "usage": {
+        "inputTokens": 1702,
+        "outputTokens": 356,
+        "reasoningTokens": 130,
+        "totalTokens": 2058
+      }
+    },
+    {
+      "category": "code-simple",
+      "taskCount": 2,
+      "passCount": 2,
+      "missingCount": 0,
+      "unknownCount": 0,
+      "passRate": 1,
+      "usage": {
+        "inputTokens": 255,
+        "outputTokens": 262,
+        "reasoningTokens": 139,
+        "totalTokens": 517
+      }
+    },
+    {
+      "category": "code-bug",
+      "taskCount": 2,
+      "passCount": 1,
+      "missingCount": 1,
+      "unknownCount": 0,
+      "passRate": 0.5,
+      "usage": {
+        "inputTokens": 301,
+        "outputTokens": 171,
+        "reasoningTokens": 94,
+        "totalTokens": 472
+      }
+    },
+    {
+      "category": "test-design",
+      "taskCount": 2,
+      "passCount": 2,
+      "missingCount": 0,
+      "unknownCount": 0,
+      "passRate": 1,
+      "usage": {
+        "inputTokens": 253,
+        "outputTokens": 833,
+        "reasoningTokens": 599,
+        "totalTokens": 1086
+      }
+    },
+    {
+      "category": "translation",
+      "taskCount": 2,
+      "passCount": 1,
+      "missingCount": 1,
+      "unknownCount": 0,
+      "passRate": 0.5,
+      "usage": {
+        "inputTokens": 227,
+        "outputTokens": 56,
+        "reasoningTokens": 37,
+        "totalTokens": 283
+      }
+    }
+  ],
+  "results": [
+    {
+      "id": "EXT-01",
+      "category": "extraction",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 128,
+        "outputTokens": 59,
+        "reasoningTokens": 51,
+        "totalTokens": 187
+      },
+      "outputHash": "711e6f4152a8a0d04ef5cf45fd5db935f1e9d105a8dba31986f985e675db3b61",
+      "responseHashes": [
+        "2e343bb97735ccc824ad05d08f2910031571876fd72e0fce503300b039851188"
+      ],
+      "detail": {
+        "parseOk": true,
+        "mode": "json-set",
+        "got": [
+          "任正非",
+          "华为"
+        ],
+        "expected": [
+          "任正非",
+          "华为"
+        ]
+      }
+    },
+    {
+      "id": "CLS-02",
+      "category": "classification",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 193,
+        "outputTokens": 81,
+        "reasoningTokens": 63,
+        "totalTokens": 274
+      },
+      "outputHash": "88ef7d6bf4cf2fe7d4d5bc46f0ad55237c24080349e363e5568c74fa5e15df54",
+      "responseHashes": [
+        "aedfcb7c790e695e9b5e763a7223351d2bdafc5eb06fad022f04da19f12d4bbc"
+      ],
+      "detail": {
+        "parseOk": true,
+        "mode": "json-list",
+        "got": [
+          "财经",
+          "科技",
+          "体育",
+          "娱乐",
+          "财经",
+          "科技",
+          "体育",
+          "娱乐"
+        ],
+        "expected": [
+          "财经",
+          "科技",
+          "体育",
+          "娱乐",
+          "财经",
+          "科技",
+          "体育",
+          "娱乐"
+        ]
+      }
+    },
+    {
+      "id": "FMT-03",
+      "category": "transform",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 150,
+        "outputTokens": 82,
+        "reasoningTokens": 32,
+        "totalTokens": 232
+      },
+      "outputHash": "1fbefc99050871987b68122c9cc810df4f61ffb4ad0eae9a0ab9880d7a7f32de",
+      "responseHashes": [
+        "05e149b4cc4da2171af1784d7d78f9bd6e2ef0f4cf6bacae30cc08b9c0fd295d"
+      ],
+      "detail": {
+        "parseOk": true,
+        "got": [
+          {
+            "name": "apple",
+            "price": 3.5,
+            "stock": 20
+          },
+          {
+            "name": "banana",
+            "price": 2,
+            "stock": 0
+          }
+        ],
+        "expected": [
+          {
+            "name": "apple",
+            "price": 3.5,
+            "stock": 20
+          },
+          {
+            "name": "banana",
+            "price": 2,
+            "stock": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "SUM-04",
+      "category": "summarization",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": false,
+      "status": "MISSING",
+      "usage": {
+        "inputTokens": 146,
+        "outputTokens": 4064,
+        "reasoningTokens": 4039,
+        "totalTokens": 4210
+      },
+      "outputHash": "460b6bb4091f530f248b70123c2670b2f3f773c70b4baff9f8538d860d992be1",
+      "responseHashes": [
+        "8895cfac7cf4a00841c8754cfd72d99b4bb3565742a79561ddfce66b992e4ead"
+      ],
+      "detail": {
+        "mustContain": [
+          "C919",
+          "商业航线"
+        ],
+        "charCount": 33,
+        "maxChars": 30
+      }
+    },
+    {
+      "id": "SCH-05",
+      "category": "strict-json-object",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 118,
+        "outputTokens": 53,
+        "reasoningTokens": 39,
+        "totalTokens": 171
+      },
+      "outputHash": "9a77a2b9a4b931c2d98ba19ffc9011c734f93da3b6ec719898bfe7af58742d3f",
+      "responseHashes": [
+        "31622af556266eb40a2d82bbf29e9fd3f5ebe834d6194b4a7544eebb9453e6e9"
+      ],
+      "detail": {
+        "parseOk": true,
+        "gotKeys": [
+          "active",
+          "count",
+          "name"
+        ],
+        "expectedKeys": [
+          "active",
+          "count",
+          "name"
+        ],
+        "typesOk": true,
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "SCH-06",
+      "category": "strict-json-schema",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 114,
+        "outputTokens": 56,
+        "reasoningTokens": 41,
+        "totalTokens": 170
+      },
+      "outputHash": "fde6278b0c5baaf798d0540bba1bad01766275884429a11c4418cc0d90e526cb",
+      "responseHashes": [
+        "c3e95a79ef722dc406c9b731eb8d0fa3f7d7c34051951c0a13243efd1f780d86"
+      ],
+      "detail": {
+        "parseOk": true,
+        "gotKeys": [
+          "pages",
+          "title"
+        ],
+        "expectedKeys": [
+          "pages",
+          "title"
+        ],
+        "typesOk": true,
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "TOOL-07",
+      "category": "tool-single",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 364,
+        "outputTokens": 66,
+        "reasoningTokens": 21,
+        "totalTokens": 430
+      },
+      "outputHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "responseHashes": [
+        "28c1c215d2c53f9929144755204ed4f3092508e64839e807956346dce9f65144"
+      ],
+      "detail": {
+        "name": "get_weather",
+        "arguments": {
+          "city": "北京"
+        }
+      }
+    },
+    {
+      "id": "TOOL-08",
+      "category": "tool-multi-turn",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash",
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200,
+        200
+      ],
+      "requestCount": 2,
+      "pass": false,
+      "status": "MISSING",
+      "usage": {
+        "inputTokens": 848,
+        "outputTokens": 189,
+        "reasoningTokens": 65,
+        "totalTokens": 1037
+      },
+      "outputHash": "ede0247069baa5bcb2acb389b47a93c1899fc77eaeb0cb0abc3d456cd48f9845",
+      "responseHashes": [
+        "9dcde52d91359beeee569bb8cef51fb93b4171a8d4b99ddd2f343143fa31d977",
+        "13d25418114613b8dd2e57fb41dbabb5f362715b297a8f601fd465d5c6fc3c60"
+      ],
+      "detail": {
+        "toolUsed": true,
+        "mustContain": [
+          "sunny"
+        ]
+      }
+    },
+    {
+      "id": "CODE-09",
+      "category": "code-simple",
+      "expectedTier": "execution",
+      "expectedModel": "openai/gpt-5.6-luna",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 121,
+        "outputTokens": 146,
+        "reasoningTokens": 58,
+        "totalTokens": 267
+      },
+      "outputHash": "7af93eac982cd81468004adb3592001be84073f811bbd688f31a2fa51a28d5c6",
+      "responseHashes": [
+        "91a1600a0fb0bb12411f0d75b486511f64f2053cb244dc21980aa36c3c5a26ba"
+      ],
+      "detail": {
+        "outcomes": [
+          {
+            "args": [
+              "A man, a plan, a canal: Panama"
+            ],
+            "expected": true,
+            "actual": true
+          },
+          {
+            "args": [
+              "race a car"
+            ],
+            "expected": false,
+            "actual": false
+          },
+          {
+            "args": [
+              ""
+            ],
+            "expected": true,
+            "actual": true
+          },
+          {
+            "args": [
+              "0P"
+            ],
+            "expected": false,
+            "actual": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CODE-10",
+      "category": "code-bug",
+      "expectedTier": "terra",
+      "expectedModel": "openai/gpt-5.6-terra",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": false,
+      "status": "MISSING",
+      "usage": {
+        "inputTokens": 153,
+        "outputTokens": 80,
+        "reasoningTokens": 43,
+        "totalTokens": 233
+      },
+      "outputHash": "512b6a70eb92d85388ae4b330fd048cc8270407d9275d461ccf2d54094718f46",
+      "responseHashes": [
+        "2db033cc4ac474f6b06a3703dee6f1093895d40cd7654caca7453ac3bb139409"
+      ],
+      "detail": {
+        "mustContain": [
+          "m = 0",
+          "负数",
+          "初始化"
+        ]
+      }
+    },
+    {
+      "id": "TEST-11",
+      "category": "test-design",
+      "expectedTier": "execution",
+      "expectedModel": "openai/gpt-5.6-luna",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 125,
+        "outputTokens": 455,
+        "reasoningTokens": 329,
+        "totalTokens": 580
+      },
+      "outputHash": "c01b6621b639f266fb55a2913b8b2125f10e67bc1a09a6ed192f65bdcddbfd75",
+      "responseHashes": [
+        "d431d65c15e840354db72885e8927f8e83dd459baf809f7414a34433b92fa902"
+      ],
+      "detail": {
+        "required": [
+          "回文",
+          "非回文",
+          "空串",
+          "标点",
+          "大小写"
+        ]
+      }
+    },
+    {
+      "id": "TRA-12",
+      "category": "translation",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": false,
+      "status": "MISSING",
+      "usage": {
+        "inputTokens": 113,
+        "outputTokens": 28,
+        "reasoningTokens": 18,
+        "totalTokens": 141
+      },
+      "outputHash": "68cc1957c95e870601f2565777aef2b26ad076f03d765612c0ce34bbe7f6a5b2",
+      "responseHashes": [
+        "a01bb349a81db2e6f5f9b837bd234ba4df324a8340b4f85b54bf9c63bd53240a"
+      ],
+      "detail": {
+        "mustContain": [
+          "央行",
+          "存款准备金"
+        ],
+        "hasAsciiLetters": false
+      }
+    },
+    {
+      "id": "EXT-13",
+      "category": "extraction",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 126,
+        "outputTokens": 153,
+        "reasoningTokens": 142,
+        "totalTokens": 279
+      },
+      "outputHash": "a68400fccf5632ceb23ef3da0242577c5507303f73f62063472882a528b746ec",
+      "responseHashes": [
+        "291089fb90e2c92b6cf26f4017b72dc93b4a6a1be8177a02e70f112b48cfc5fb"
+      ],
+      "detail": {
+        "parseOk": true,
+        "mode": "json-set",
+        "got": [
+          "苹果公司",
+          "蒂姆·库克"
+        ],
+        "expected": [
+          "苹果公司",
+          "蒂姆·库克"
+        ]
+      }
+    },
+    {
+      "id": "CLS-14",
+      "category": "classification",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 189,
+        "outputTokens": 58,
+        "reasoningTokens": 40,
+        "totalTokens": 247
+      },
+      "outputHash": "011ebc4749b8cc51f04c49b41795b42526e04aadb2869ff1889660133608a78a",
+      "responseHashes": [
+        "ac55d37f5e60993b2b1d3f01ad1e4848a27f9e4e8650a69c170dec8a36d90534"
+      ],
+      "detail": {
+        "parseOk": true,
+        "mode": "json-list",
+        "got": [
+          "体育",
+          "娱乐",
+          "财经",
+          "科技",
+          "体育",
+          "娱乐",
+          "财经",
+          "科技"
+        ],
+        "expected": [
+          "体育",
+          "娱乐",
+          "财经",
+          "科技",
+          "体育",
+          "娱乐",
+          "财经",
+          "科技"
+        ]
+      }
+    },
+    {
+      "id": "FMT-15",
+      "category": "transform",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 150,
+        "outputTokens": 51,
+        "reasoningTokens": 19,
+        "totalTokens": 201
+      },
+      "outputHash": "de8112aa558cc5c0e9eb869b1bc77d0ae166ba121a35f693733009bcce9731ee",
+      "responseHashes": [
+        "1c6f43cc3d282b9172f04f8ccb29885594d13b205f7bb04a5feb4af3516ab834"
+      ],
+      "detail": {
+        "parseOk": true,
+        "got": [
+          {
+            "name": "orange",
+            "price": 4.2,
+            "stock": 8
+          },
+          {
+            "name": "pear",
+            "price": 5,
+            "stock": 3
+          }
+        ],
+        "expected": [
+          {
+            "name": "orange",
+            "price": 4.2,
+            "stock": 8
+          },
+          {
+            "name": "pear",
+            "price": 5,
+            "stock": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "SUM-16",
+      "category": "summarization",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 125,
+        "outputTokens": 87,
+        "reasoningTokens": 71,
+        "totalTokens": 212
+      },
+      "outputHash": "489c06839c8fb5b4613fdcfa446e108003bcd80663f5245800dfff323985441c",
+      "responseHashes": [
+        "8cf8db97a3817a864a27ad3e7d1678f222b0b5b0ef2cbf170997ee666a342afe"
+      ],
+      "detail": {
+        "mustContain": [
+          "嫦娥六号",
+          "月背采样"
+        ],
+        "charCount": 21,
+        "maxChars": 30
+      }
+    },
+    {
+      "id": "SCH-17",
+      "category": "strict-json-object",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 119,
+        "outputTokens": 55,
+        "reasoningTokens": 39,
+        "totalTokens": 174
+      },
+      "outputHash": "779433d2008e152ff8d0dca549a163b32bc5af0b9e17383532ef93d365eb189a",
+      "responseHashes": [
+        "1e84d4c94e232084074a868d25147033a91fb4573d14672c8b725608cde68de2"
+      ],
+      "detail": {
+        "parseOk": true,
+        "gotKeys": [
+          "archived",
+          "items",
+          "title"
+        ],
+        "expectedKeys": [
+          "archived",
+          "items",
+          "title"
+        ],
+        "typesOk": true,
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "SCH-18",
+      "category": "strict-json-schema",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 114,
+        "outputTokens": 83,
+        "reasoningTokens": 69,
+        "totalTokens": 197
+      },
+      "outputHash": "ba489fd09498fdf56d97b4bb468d085e75ee722180c2983e6b636b39b48f6ac9",
+      "responseHashes": [
+        "49767674313fcddd00a7593a53562b5ddc1d5fd7c6143aca7ebd087a14d321cd"
+      ],
+      "detail": {
+        "parseOk": true,
+        "gotKeys": [
+          "price",
+          "sku"
+        ],
+        "expectedKeys": [
+          "price",
+          "sku"
+        ],
+        "typesOk": true,
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "TOOL-19",
+      "category": "tool-single",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 364,
+        "outputTokens": 68,
+        "reasoningTokens": 23,
+        "totalTokens": 432
+      },
+      "outputHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "responseHashes": [
+        "af2ece23a45e95f83260626a843c5be9621984c7701b2c17960ddac62891ec08"
+      ],
+      "detail": {
+        "name": "get_weather",
+        "arguments": {
+          "city": "上海"
+        }
+      }
+    },
+    {
+      "id": "TOOL-20",
+      "category": "tool-multi-turn",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash",
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200,
+        200
+      ],
+      "requestCount": 2,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 854,
+        "outputTokens": 167,
+        "reasoningTokens": 65,
+        "totalTokens": 1021
+      },
+      "outputHash": "e4eea8eeec25af4a9fe21d7eee5b608b4aec5ce407dfabd644e85d167cdcfeee",
+      "responseHashes": [
+        "3ce4c2abeac773c58d78c0981997785751db19a5c7d231d37d7c54ea5a68857e",
+        "e74829adbac2b12c2437af237a13e58bebc762aa0c61832758e49827e9892276"
+      ],
+      "detail": {
+        "toolUsed": true,
+        "mustContain": [
+          "rainy"
+        ]
+      }
+    },
+    {
+      "id": "CODE-21",
+      "category": "code-simple",
+      "expectedTier": "execution",
+      "expectedModel": "openai/gpt-5.6-luna",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 134,
+        "outputTokens": 116,
+        "reasoningTokens": 81,
+        "totalTokens": 250
+      },
+      "outputHash": "ae416465bb031ad6259006a8d3120ca181792b353f14397dc5312cedbfaced99",
+      "responseHashes": [
+        "9b96ac821d970e33f3d75978d9b1ea3dd5b5e806f3d48ad4db970400d0b343e6"
+      ],
+      "detail": {
+        "outcomes": [
+          {
+            "args": [
+              -1,
+              0,
+              10
+            ],
+            "expected": 0,
+            "actual": 0
+          },
+          {
+            "args": [
+              5,
+              0,
+              10
+            ],
+            "expected": 5,
+            "actual": 5
+          },
+          {
+            "args": [
+              11,
+              0,
+              10
+            ],
+            "expected": 10,
+            "actual": 10
+          },
+          {
+            "args": [
+              3,
+              3,
+              3
+            ],
+            "expected": 3,
+            "actual": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "CODE-22",
+      "category": "code-bug",
+      "expectedTier": "terra",
+      "expectedModel": "openai/gpt-5.6-terra",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 148,
+        "outputTokens": 91,
+        "reasoningTokens": 51,
+        "totalTokens": 239
+      },
+      "outputHash": "dccd38cd77da4cbbe52726be27bb663c60e524f6b26bf229dd4d2663dc9237b7",
+      "responseHashes": [
+        "438e66bd58da135a112c0487e5bb1c5316cd858af079838d40047140ee893389"
+      ],
+      "detail": {
+        "mustContain": [
+          "a.length",
+          "空数组",
+          "除以零"
+        ]
+      }
+    },
+    {
+      "id": "TEST-23",
+      "category": "test-design",
+      "expectedTier": "execution",
+      "expectedModel": "openai/gpt-5.6-luna",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 128,
+        "outputTokens": 378,
+        "reasoningTokens": 270,
+        "totalTokens": 506
+      },
+      "outputHash": "b0697dd588dbcbe61e0160b4a59fe12b6022f378c0c2debff2e3528b0ed7f154",
+      "responseHashes": [
+        "13acb5155e393ef15147e68749bdb790c2b6ed22699f4e44d4d058c94e8f457b"
+      ],
+      "detail": {
+        "required": [
+          "下界",
+          "上界",
+          "区间内",
+          "低于下界",
+          "高于上界"
+        ]
+      }
+    },
+    {
+      "id": "TRA-24",
+      "category": "translation",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "requestModel": "deepseek/deepseek-v4-flash",
+      "requestReasoningEffort": "default-not-overridden",
+      "responseModels": [
+        "deepseek-v4-flash"
+      ],
+      "responseReasoningEffort": "UNKNOWN",
+      "httpStatuses": [
+        200
+      ],
+      "requestCount": 1,
+      "pass": true,
+      "status": "PRESENT",
+      "usage": {
+        "inputTokens": 114,
+        "outputTokens": 28,
+        "reasoningTokens": 19,
+        "totalTokens": 142
+      },
+      "outputHash": "1760dada2403be111770f0f41788d8120605870dba79059d4ff4ab07a6fec910",
+      "responseHashes": [
+        "fc3d94ed5d4fb8a3378387a11c4fde0fb6f5911b83050f268c47a7e25c83d37a"
+      ],
+      "detail": {
+        "mustContain": [
+          "公司",
+          "研发",
+          "产能"
+        ],
+        "hasAsciiLetters": false
+      }
+    }
+  ]
+}

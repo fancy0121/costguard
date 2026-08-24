@@ -1,0 +1,281 @@
+{
+  "date": "2026-08-15",
+  "side": "DeepSeek execution-tier only (Sol baseline and Luna/terra tasks deferred)",
+  "model": "deepseek/deepseek-v4-flash",
+  "taskCount": 9,
+  "passCount": 8,
+  "results": [
+    {
+      "id": "EXT-01",
+      "category": "extraction",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "usage": {
+        "input_tokens": 124,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 59,
+        "output_tokens_details": {
+          "reasoning_tokens": 51
+        },
+        "total_tokens": 183
+      },
+      "detail": {
+        "parseOk": true,
+        "got": [
+          "任正非",
+          "华为"
+        ],
+        "expected": [
+          "任正非",
+          "华为"
+        ]
+      },
+      "outputHash": "2d709c57b055a8f3a998438a7cc4a446378b79b12a6d182db390b866aa77a241"
+    },
+    {
+      "id": "CLS-02",
+      "category": "classification",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "usage": {
+        "input_tokens": 185,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 57,
+        "output_tokens_details": {
+          "reasoning_tokens": 41
+        },
+        "total_tokens": 242
+      },
+      "detail": {
+        "got": [
+          "财经",
+          "科技",
+          "体育",
+          "娱乐",
+          "财经",
+          "科技",
+          "体育",
+          "娱乐"
+        ],
+        "expected": [
+          "财经",
+          "科技",
+          "体育",
+          "娱乐",
+          "财经",
+          "科技",
+          "体育",
+          "娱乐"
+        ]
+      },
+      "outputHash": "10e1d5a910cce7e2199580ac5fb2269dc857aeee4d9155ddd2a5f3dac0c4690e"
+    },
+    {
+      "id": "FMT-03",
+      "category": "transform",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "usage": {
+        "input_tokens": 147,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 126,
+        "output_tokens_details": {
+          "reasoning_tokens": 76
+        },
+        "total_tokens": 273
+      },
+      "detail": {
+        "parseOk": true,
+        "got": [
+          {
+            "name": "apple",
+            "price": 3.5,
+            "stock": 20
+          },
+          {
+            "name": "banana",
+            "price": 2,
+            "stock": 0
+          }
+        ],
+        "expected": [
+          {
+            "name": "apple",
+            "price": 3.5,
+            "stock": 20
+          },
+          {
+            "name": "banana",
+            "price": 2,
+            "stock": 0
+          }
+        ]
+      },
+      "outputHash": "d37ff4867cc6ba628ab440afd23b2dd51561be50ecf5ede999f411dd69bad5d4"
+    },
+    {
+      "id": "SUM-04",
+      "category": "summarization",
+      "httpStatus": 200,
+      "pass": false,
+      "acceptance": "FAILED",
+      "usage": {
+        "input_tokens": 136,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 1260,
+        "output_tokens_details": {
+          "reasoning_tokens": 1236
+        },
+        "total_tokens": 1396
+      },
+      "detail": {
+        "hasC919": false,
+        "hasRoute": false,
+        "charCount": 33,
+        "bound": 30
+      },
+      "outputHash": "6f2f07d220080142bd42825a7650bc097492421a0713b368267d3f874527b369"
+    },
+    {
+      "id": "SCH-05",
+      "category": "strict-json-object",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "usage": {
+        "input_tokens": 109,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 127,
+        "output_tokens_details": {
+          "reasoning_tokens": 113
+        },
+        "total_tokens": 236
+      },
+      "detail": {
+        "parseOk": true,
+        "keys": [
+          "active",
+          "count",
+          "name"
+        ],
+        "typesOk": true,
+        "rawText": "{\"name\":\"test\",\"count\":1,\"active\":true}"
+      },
+      "outputHash": "dd62a3fa6169f7b2d35b54771f37e000496a86ef42b90c6d9045b5e89754ccfe"
+    },
+    {
+      "id": "SCH-06",
+      "category": "strict-json-schema",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "usage": {
+        "input_tokens": 111,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 81,
+        "output_tokens_details": {
+          "reasoning_tokens": 70
+        },
+        "total_tokens": 192
+      },
+      "detail": {
+        "parseOk": true,
+        "keys": [
+          "pages",
+          "title"
+        ],
+        "typesOk": true,
+        "rawText": "{\"title\":\"示例书籍\",\"pages\":200}"
+      },
+      "outputHash": "02893f22e39c937de890c40ba5ec9066fb79cbcfa1637c8f6ec8a09176c52dd6"
+    },
+    {
+      "id": "TOOL-07",
+      "category": "tool-single",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "usage": {
+        "input_tokens": 349,
+        "input_tokens_details": {
+          "cached_tokens": 256
+        },
+        "output_tokens": 84,
+        "output_tokens_details": {
+          "reasoning_tokens": 33
+        },
+        "total_tokens": 433
+      },
+      "detail": {
+        "name": "get_weather",
+        "arguments": {
+          "city": "北京"
+        }
+      },
+      "outputHash": "9be5e45e2cf269b90861390d5ca2ef327913eb236c6a944ea59e110c6c1a6d1f"
+    },
+    {
+      "id": "TOOL-08",
+      "category": "tool-multi-turn",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "usage": {
+        "input_tokens": 450,
+        "input_tokens_details": {
+          "cached_tokens": 384
+        },
+        "output_tokens": 114,
+        "output_tokens_details": {
+          "reasoning_tokens": 29
+        },
+        "total_tokens": 564
+      },
+      "detail": {
+        "finalText": "我查询了巴黎的天气，情况如下：\n\n- **温度**：20°C\n- **天气状况**：晴朗（sunny）\n\n**是否适合出门？** 非常适合！🌞\n\n20°C 的气温非常舒适，加上晴朗的天气，无论散步、逛街还是户外活动都很合适。建议做好防晒、带上外套（早晚可能稍凉），就可以愉快地出门啦！"
+      },
+      "outputHash": "8c591869b840b00144c20b5ab4833c52465efd9c68e50d8bc5af456076183da2",
+      "firstTurnCallId": "call_00_jj5CqgRRVcmlPTopdebm0336"
+    },
+    {
+      "id": "TRA-12",
+      "category": "translation",
+      "httpStatus": 200,
+      "pass": true,
+      "acceptance": "PRESENT",
+      "usage": {
+        "input_tokens": 99,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 191,
+        "output_tokens_details": {
+          "reasoning_tokens": 181
+        },
+        "total_tokens": 290
+      },
+      "detail": {
+        "has央行": true,
+        "hasReserve": true,
+        "hasAscii": false,
+        "rawText": "央行下调存款准备金率以支持信贷。"
+      },
+      "outputHash": "3f85bc1287bf719fa594fe08c51cfe85ae8eb7819d60c7802258ae5a610ea2b8"
+    }
+  ]
+}

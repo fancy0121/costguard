@@ -1,0 +1,77 @@
+{
+  "package": "savetoken",
+  "version": "0.1.0",
+  "stage": "MVP evidence reconciliation",
+  "date": "2026-08-13",
+  "upstream_reference": {
+    "package": "@bitkyc08/opencodex",
+    "version": "2.11.0",
+    "commit": "57140d6f06218d604ee139e5909a1b868bf7a84b",
+    "license": "MIT",
+    "readOnly": true
+  },
+  "capability": {
+    "PRESENT": [
+      "Local typecheck, lint, privacy scan, package allowlist, and clean-room package gates",
+      "Isolated owned-state, catalog projection, config-marker, restore, uninstall, and journal-contract tests",
+      "Local Responses, Chat Completions, and Anthropic fixture protocol contracts",
+      "Local explicit structured-output Quality Gate subset with fail-closed HTTP 422",
+      "Model-level frozen tier admission and trusted-signal-only automatic route selection",
+      "Local execution-only combo alias, weighted round-robin, availability filtering, route-admission, and catalog-projection contracts",
+      "Local provider failure, cooldown, and strict fallback-contract tests",
+      "Local CLI/process, management-auth, allowlisted WebSocket facade E2E, and owned redacted telemetry restart E2E",
+      "Bounded loopback-only model discovery/cache and explicit default-provider fail-closed contracts",
+      "Three-protocol protocol-native structured quality and bounded Responses stream tool-continuation fixtures"
+    ],
+    "PARTIAL": [
+      "Trusted loopback OpenCodex proxy adapter: fixed paths, pureBody, model identity checks, redacted failure mapping, and local contract tests",
+      "Responses/Chat/Anthropic streaming, tools, cancellation, and error behavior: local fixture coverage only",
+      "CODEX_HOME catalog/config lifecycle: isolated SaveToken contract only; native Codex compatibility not proven",
+      "Provider availability, cooldown, affinity, and fallback: local contract only; no live account or quota evidence",
+      "CLI, management API, dashboard, service, shim, sidecar, and WebSocket surfaces: local bounded behavior only",
+      "OpenCodex upstream conformance: all nine mapped capabilities remain incomplete"
+    ],
+    "NOT_TESTED": [
+      "Hosted Windows/macOS/Linux CI",
+      "Operating-system service or shim installation, crash recovery, and uninstall",
+      "Native OPENCODEX_HOME and Codex-client compatibility",
+      "Real Chat/Anthropic stream, tool, cancel, and error behavior through SaveToken"
+    ],
+    "MISSING": [
+      "Complete OpenCodex runtime parity",
+      "External web-search, vision, image, or sidecar integrations",
+      "Native upstream account-pool, OAuth, API-key, quota, and round-robin compatibility"
+    ],
+    "UNKNOWN": [
+      "Current live availability of Sol, Terra, Luna, DeepSeek, and GLM through the SaveToken runtime",
+      "Live combo, weighted selection, cooldown, and fallback behavior through any Provider",
+      "Real Provider authentication, quota, cooldown, failover, cancellation propagation, and protocol-edge fidelity",
+      "Token or cost savings and general quality preservation",
+      "Native Codex consumption of SaveToken-managed configuration"
+    ]
+  },
+  "verified_route_boundary": {
+    "historical_evidence": "Prior D-3 evidence recorded a bounded DeepSeek Responses route through OpenCodex proxy. It was not rerun in this reconciliation.",
+    "current_claim": "No current real Provider claim is made."
+  },
+  "quality_gate": {
+    "version": "0.1",
+    "enforced": "only for explicit structured contracts",
+    "no_contract": "UNSPECIFIED",
+    "failure_response": "HTTP 422, status UNKNOWN, failClosed true, routeAdmission preserved"
+  },
+  "routing_hierarchy": {
+    "sol": "gpt-5.6-sol; model-level route tier; current live availability UNKNOWN",
+    "terra": "gpt-5.6-terra; model-level route tier; current live availability UNKNOWN",
+    "execution_luna": "gpt-5.6-luna; execution tier; current live availability UNKNOWN",
+    "execution_deepseek": "deepseek-v4-flash; execution tier; current live availability UNKNOWN in this run",
+    "glm_backup": "glm-5.2; only after two distinct execution routes are explicitly unavailable"
+  },
+  "default_effort": "unchanged; no global effort recommendation"
+  ,"verification": {
+    "date": "2026-08-13",
+    "source_tree": { "bun": "1.3.14", "test": "295 pass, 0 fail, 1014 expectations, 71 files", "typecheck": "exit 0", "lint": "exit 0", "privacy": "exit 0; 0 hits", "package": "exit 0; 129 allowed, 657 excluded, 0 missing" },
+    "clean_room": { "bun": "1.3.14", "install": "exit 0; frozen lockfile", "test": "295 pass, 0 fail, 1009 expectations, 71 files", "typecheck": "exit 0", "lint": "exit 0", "privacy": "exit 0; 0 hits", "package": "exit 0; 129 allowed, 657 excluded, 0 missing", "archive_manifest": "129 entries with matching path, size, and SHA-256" },
+    "archive": { "sha256": "3BD36D5C694AFF392BC094E6ED66694CEB376A168126C0F0CB1CD8ED48786971", "manifest_sha256": "E8B2BD76FB7772A1160335A0291FFE4753C6DB767F1A0DD4AFDA099307C76FF3" }
+  }
+}

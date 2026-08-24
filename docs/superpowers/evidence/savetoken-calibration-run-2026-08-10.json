@@ -1,0 +1,137 @@
+﻿{
+    "fixture_hash":  "26005BCD34486F3EA598C58033B0FD50B7A666F9FD62579FA6518BA230D4AE77",
+    "calibration":  "Calibration-1",
+    "runs":  [
+                 {
+                     "id":  "E1-DS",
+                     "model":  "deepseek/deepseek-v4-flash",
+                     "response_hash":  "119e60d9c0417760542de5fe0969cb634ed02cb8b3f605bd62135f7f87d99af8",
+                     "http":  200,
+                     "status":  "completed",
+                     "acceptance":  {
+                                        "three_records":  true,
+                                        "fields_preserved":  true,
+                                        "no_prose":  true,
+                                        "valid_json":  true
+                                    },
+                     "usage":  {
+                                   "total_tokens":  244,
+                                   "output_tokens":  105,
+                                   "input_tokens":  139,
+                                   "reasoning_tokens":  48
+                               },
+                     "route":  "savetoken-deepseek"
+                 },
+                 {
+                     "id":  "E2-DS",
+                     "model":  "deepseek/deepseek-v4-flash",
+                     "response_hash":  "9131c918d73f2463b69c78d35bc802ae92176e1ed795a291a0b9319b53a98337",
+                     "http":  200,
+                     "status":  "completed",
+                     "acceptance":  {
+                                        "function_call":  true,
+                                        "no_prose_before":  true,
+                                        "name_get_weather":  true,
+                                        "city_beijing":  true
+                                    },
+                     "usage":  {
+                                   "total_tokens":  448,
+                                   "output_tokens":  82,
+                                   "input_tokens":  366,
+                                   "reasoning_tokens":  37
+                               },
+                     "route":  "savetoken-deepseek"
+                 },
+                 {
+                     "id":  "E1-SOL",
+                     "model":  "gpt-5.6-sol",
+                     "http":  200,
+                     "status":  "completed",
+                     "acceptance":  {
+                                        "three_records":  true,
+                                        "fields_preserved":  true,
+                                        "no_prose":  true,
+                                        "valid_json":  true
+                                    },
+                     "usage":  {
+                                   "total_tokens":  157,
+                                   "output_tokens":  96,
+                                   "input_tokens":  61
+                               },
+                     "route":  "opencodex-sol-control",
+                     "note":  "Sol control path; requires input array, store=false, stream=true"
+                 },
+                 {
+                     "id":  "E2-SOL",
+                     "model":  "gpt-5.6-sol",
+                     "http":  200,
+                     "status":  "completed",
+                     "acceptance":  {
+                                        "function_call":  true,
+                                        "no_prose_before":  true,
+                                        "name_get_weather":  true,
+                                        "city_beijing":  true
+                                    },
+                     "usage":  {
+                                   "total_tokens":  74,
+                                   "output_tokens":  19,
+                                   "input_tokens":  55
+                               },
+                     "route":  "opencodex-sol-control",
+                     "note":  "Sol control path; function call only, no text output"
+                 }
+             ],
+    "routing":  [
+                    {
+                        "expected":  "terra",
+                        "failClosed":  true,
+                        "pass":  true,
+                        "actual":  "terra",
+                        "id":  "M1"
+                    },
+                    {
+                        "expected":  "terra",
+                        "failClosed":  true,
+                        "pass":  true,
+                        "actual":  "terra",
+                        "id":  "M2"
+                    },
+                    {
+                        "id":  "H1",
+                        "pass":  true,
+                        "actual":  "sol",
+                        "expected":  "sol",
+                        "reasons":  [
+                                        "security-or-permission-impact",
+                                        "production-or-migration-impact"
+                                    ],
+                        "failClosed":  true
+                    },
+                    {
+                        "id":  "H2",
+                        "pass":  true,
+                        "actual":  "sol",
+                        "expected":  "sol",
+                        "reasons":  [
+                                        "security-or-permission-impact",
+                                        "architecture-or-blocker"
+                                    ],
+                        "failClosed":  true
+                    }
+                ],
+    "date":  "2026-08-10",
+    "token_comparison":  {
+                             "E1":  {
+                                        "deepseek_total":  244,
+                                        "sol_total":  157,
+                                        "ratio":  1.55,
+                                        "note":  "DeepSeek used more tokens than Sol for structured extraction"
+                                    },
+                             "E2":  {
+                                        "deepseek_total":  448,
+                                        "sol_total":  74,
+                                        "ratio":  6.05,
+                                        "note":  "DeepSeek used significantly more tokens; reasoning overhead + tool schema inflated input"
+                                    }
+                         }
+}

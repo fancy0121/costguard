@@ -1,0 +1,241 @@
+﻿{
+    "fixture_hash":  "AEBFD8863F9A61801596B74EDD2F819A2DFBDF27C4698B49F5B1AC5CB2DD2C5C",
+    "calibration":  "Decision-Calibration",
+    "effort_confirmation":  {
+                                "note":  "Adapter returns reasoning.effort correctly per Calibration-2 direct test",
+                                "low_readback":  "UNKNOWN (shaper strips reasoning field; adapter-level confirmed in Calibration-2)",
+                                "default_readback":  "UNKNOWN (shaper strips reasoning field; adapter-level confirmed in Calibration-2)"
+                            },
+    "date":  "2026-08-10",
+    "results":  [
+                    {
+                        "acceptance":  {
+                                           "four_records":  true,
+                                           "deep_equality":  true,
+                                           "no_prose":  true,
+                                           "valid_json":  true
+                                       },
+                        "http":  200,
+                        "id":  "X1",
+                        "reasoning_tokens":  26,
+                        "total_tokens":  363,
+                        "all_pass":  true,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "default",
+                        "class":  "extraction",
+                        "response_hash":  "c3fb92c632480901a508880a5e201c0cfe989cefb20bbc166fac309a39d67df8"
+                    },
+                    {
+                        "acceptance":  {
+                                           "four_records":  true,
+                                           "deep_equality":  true,
+                                           "no_prose":  true,
+                                           "valid_json":  true
+                                       },
+                        "http":  200,
+                        "id":  "X1",
+                        "reasoning_tokens":  824,
+                        "total_tokens":  1082,
+                        "all_pass":  true,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "low",
+                        "class":  "extraction",
+                        "response_hash":  "58d85bed1a5e9c273a94ba100f0aa0c498f0dc86a2b8251ef69c3a1e4fd6a738"
+                    },
+                    {
+                        "acceptance":  {
+                                           "name_get_weather":  true,
+                                           "deep_equality_args":  true,
+                                           "no_prose_before":  true,
+                                           "one_function_call":  true
+                                       },
+                        "http":  200,
+                        "id":  "X2",
+                        "reasoning_tokens":  213,
+                        "total_tokens":  631,
+                        "all_pass":  true,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "default",
+                        "class":  "tool_call",
+                        "response_hash":  "ea05ac38fed43c44fc9d249935b46c3993421462a3f88535db2a5ab304efbac2"
+                    },
+                    {
+                        "acceptance":  {
+                                           "name_get_weather":  true,
+                                           "deep_equality_args":  true,
+                                           "no_prose_before":  true,
+                                           "one_function_call":  true
+                                       },
+                        "http":  200,
+                        "id":  "X2",
+                        "reasoning_tokens":  36,
+                        "total_tokens":  376,
+                        "all_pass":  true,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "low",
+                        "class":  "tool_call",
+                        "response_hash":  "a3286693e1c6c44716acf1d58bc76aad30457f6d7620eb5eb225a9fe408f41ca"
+                    },
+                    {
+                        "acceptance":  {
+                                           "deep_equality":  false,
+                                           "six_outputs":  true,
+                                           "labels_allowed":  true,
+                                           "valid_json":  true
+                                       },
+                        "http":  200,
+                        "id":  "X3",
+                        "failure":  "output format is object not array; expected [{id,label},...] got {A:keep,...}",
+                        "reasoning_tokens":  2612,
+                        "total_tokens":  2789,
+                        "all_pass":  false,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "default",
+                        "class":  "classification",
+                        "response_hash":  "9e5ab972041ab3b27d8903fc0bd1a9448d381f21ab6e7fa2b4b0e6686670179a"
+                    },
+                    {
+                        "acceptance":  {
+                                           "deep_equality":  false,
+                                           "six_outputs":  true,
+                                           "labels_allowed":  false,
+                                           "valid_json":  true
+                                       },
+                        "http":  200,
+                        "id":  "X3",
+                        "failure":  "D label reject instead of review; format is object not array",
+                        "reasoning_tokens":  792,
+                        "total_tokens":  902,
+                        "all_pass":  false,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "low",
+                        "class":  "classification",
+                        "response_hash":  "40d84ede2353810bc852606527c12f6d3b822bb3aa70fd0827119c0d9d8cd2b1"
+                    },
+                    {
+                        "acceptance":  {
+                                           "ordering_preserved":  true,
+                                           "deep_equality":  false,
+                                           "five_rows":  true,
+                                           "nulls_preserved":  true
+                                       },
+                        "http":  200,
+                        "id":  "X4",
+                        "failure":  "code fence; active as string yes/no not boolean",
+                        "reasoning_tokens":  867,
+                        "total_tokens":  1156,
+                        "all_pass":  false,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "default",
+                        "class":  "transformation",
+                        "response_hash":  "ca8675f892312996e45ed25232ee11e718117ef2e8bbdef796d22e2a56e8984e"
+                    },
+                    {
+                        "acceptance":  {
+                                           "ordering_preserved":  true,
+                                           "deep_equality":  false,
+                                           "five_rows":  true,
+                                           "nulls_preserved":  true
+                                       },
+                        "http":  200,
+                        "id":  "X4",
+                        "failure":  "code fence; active boolean ok but still in fence",
+                        "reasoning_tokens":  1105,
+                        "total_tokens":  1310,
+                        "all_pass":  false,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "low",
+                        "class":  "transformation",
+                        "response_hash":  "8ca0cf406afc13ff8468a6f258acf540899612c496b5db886e109f47f2d54f5b"
+                    },
+                    {
+                        "acceptance":  {
+                                           "actionable":  true,
+                                           "three_defects":  true,
+                                           "no_redesign":  true,
+                                           "line_refs_234":  true
+                                       },
+                        "http":  200,
+                        "id":  "X5",
+                        "reasoning_tokens":  692,
+                        "total_tokens":  993,
+                        "all_pass":  true,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "default",
+                        "class":  "code_review",
+                        "response_hash":  "3e7f3ca7ecec2579837a29fa0d0c4bc3764a682cec3f5661afa05158696a26af"
+                    },
+                    {
+                        "acceptance":  {
+                                           "actionable":  true,
+                                           "three_defects":  true,
+                                           "no_redesign":  true,
+                                           "line_refs_234":  true
+                                       },
+                        "http":  200,
+                        "id":  "X5",
+                        "reasoning_tokens":  681,
+                        "total_tokens":  925,
+                        "all_pass":  true,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "low",
+                        "class":  "code_review",
+                        "response_hash":  "717e1d8222df553a1ad0888786e3fd0dde3e563ac85c553c221c741c5e88158e"
+                    },
+                    {
+                        "acceptance":  {
+                                           "three_rows":  true,
+                                           "expected_match":  true,
+                                           "reasons_correct":  true,
+                                           "no_impl_changes":  true
+                                       },
+                        "http":  200,
+                        "id":  "X6",
+                        "reasoning_tokens":  921,
+                        "total_tokens":  1181,
+                        "all_pass":  true,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "default",
+                        "class":  "test_design",
+                        "response_hash":  "49820d3338ec641e1a218dae62aa15982935b327e8071ad88c7e54376b797dc1"
+                    },
+                    {
+                        "acceptance":  {
+                                           "three_rows":  true,
+                                           "expected_match":  true,
+                                           "reasons_correct":  true,
+                                           "no_impl_changes":  true
+                                       },
+                        "http":  200,
+                        "id":  "X6",
+                        "reasoning_tokens":  274,
+                        "total_tokens":  448,
+                        "all_pass":  true,
+                        "model":  "deepseek-v4-flash",
+                        "effort":  "low",
+                        "class":  "test_design",
+                        "response_hash":  "2ce2bb2641a9a58c2746eab14750571f93112215456cb5fbc393dfae431605d5"
+                    }
+                ],
+    "summary":  {
+                    "total_pairs":  12,
+                    "token_deltas":  {
+                                         "X3":  "quality failed both",
+                                         "X4":  "quality failed both",
+                                         "X5":  "-7% (925 vs 993) — below 10% threshold",
+                                         "X1":  "+198% (1082 vs 363) — low much worse",
+                                         "X6":  "-62% (448 vs 1181) — low much better",
+                                         "X2":  "-40% (376 vs 631) — low better"
+                                     },
+                    "both_efforts_pass":  [
+                                              "X1",
+                                              "X2",
+                                              "X5",
+                                              "X6"
+                                          ],
+                    "at_least_one_fails":  [
+                                               "X3",
+                                               "X4"
+                                           ]
+                }
+}

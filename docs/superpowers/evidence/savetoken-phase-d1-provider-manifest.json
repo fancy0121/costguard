@@ -1,0 +1,333 @@
+﻿{
+    "phase":  "D-1.1",
+    "date":  "2026-08-10",
+    "revision":  "corrected service status, actual readbacks, full model list",
+    "service":  {
+                    "url":  "http://127.0.0.1:10100",
+                    "version":  "2.11.0",
+                    "pid":  24744,
+                    "healthz":  {
+                                    "status_code":  200,
+                                    "status":  "ok"
+                                },
+                    "readyz":  {
+                                   "status_code":  200,
+                                   "status":  "ready"
+                               },
+                    "models_endpoint":  {
+                                            "status_code":  200,
+                                            "model_count":  27
+                                        }
+                },
+    "upstream_source":  {
+                            "path":  "work/opencodex-upstream",
+                            "package":  "@bitkyc08/opencodex",
+                            "version":  "2.11.0",
+                            "commit":  "57140d6f06218d604ee139e5909a1b868bf7a84b",
+                            "license":  "MIT",
+                            "running":  false,
+                            "note":  "read-only reference clone; no node_modules"
+                        },
+    "models":  [
+                   {
+                       "provider":  "openai",
+                       "id":  "gpt-5.3-codex-spark",
+                       "owned_by":  "openai",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "medium",
+                                                 "high",
+                                                 "xhigh"
+                                             ]
+                   },
+                   {
+                       "provider":  "openai",
+                       "id":  "gpt-5.6-sol",
+                       "owned_by":  "openai",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "medium",
+                                                 "high",
+                                                 "xhigh",
+                                                 "max",
+                                                 "ultra"
+                                             ]
+                   },
+                   {
+                       "provider":  "openai",
+                       "id":  "gpt-5.6-terra",
+                       "owned_by":  "openai",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "medium",
+                                                 "high",
+                                                 "xhigh",
+                                                 "max",
+                                                 "ultra"
+                                             ]
+                   },
+                   {
+                       "provider":  "openai",
+                       "id":  "gpt-5.6-luna",
+                       "owned_by":  "openai",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "medium",
+                                                 "high",
+                                                 "xhigh",
+                                                 "max"
+                                             ]
+                   },
+                   {
+                       "provider":  "deepseek",
+                       "id":  "deepseek/deepseek-v4-flash",
+                       "owned_by":  "deepseek",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "high",
+                                                 "max"
+                                             ]
+                   },
+                   {
+                       "provider":  "deepseek",
+                       "id":  "deepseek/deepseek-v4-pro",
+                       "owned_by":  "deepseek",
+                       "reasoning_efforts":  [
+                                                 "high",
+                                                 "max"
+                                             ]
+                   },
+                   {
+                       "provider":  "kimi",
+                       "id":  "kimi/k3",
+                       "owned_by":  "kimi",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "high",
+                                                 "max"
+                                             ]
+                   },
+                   {
+                       "provider":  "kimi",
+                       "id":  "kimi/k3[1m]",
+                       "owned_by":  "kimi",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "high",
+                                                 "max"
+                                             ]
+                   },
+                   {
+                       "provider":  "kimi",
+                       "id":  "kimi/kimi-for-coding",
+                       "owned_by":  "kimi",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "kimi",
+                       "id":  "kimi/kimi-k2.5",
+                       "owned_by":  "kimi",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "kimi",
+                       "id":  "kimi/kimi-k2.6",
+                       "owned_by":  "kimi",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "kimi",
+                       "id":  "kimi/kimi-k2.7-code",
+                       "owned_by":  "kimi",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "kimi",
+                       "id":  "kimi/kimi-k2.7-code-highspeed",
+                       "owned_by":  "kimi",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "xai",
+                       "id":  "xai/grok-4.20-0309-non-reasoning",
+                       "owned_by":  "xai",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "xai",
+                       "id":  "xai/grok-4.20-0309-reasoning",
+                       "owned_by":  "xai",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "xai",
+                       "id":  "xai/grok-4.3",
+                       "owned_by":  "xai",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "xai",
+                       "id":  "xai/grok-4.5",
+                       "owned_by":  "xai",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "medium",
+                                                 "high"
+                                             ]
+                   },
+                   {
+                       "provider":  "xai",
+                       "id":  "xai/grok-build-0.1",
+                       "owned_by":  "xai",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "xai",
+                       "id":  "xai/grok-composer-2.5-fast",
+                       "owned_by":  "xai",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "zhipu-bigmodel",
+                       "id":  "zhipu-bigmodel/glm-4.5",
+                       "owned_by":  "z-ai",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "zhipu-bigmodel",
+                       "id":  "zhipu-bigmodel/glm-4.5-air",
+                       "owned_by":  "z-ai",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "zhipu-bigmodel",
+                       "id":  "zhipu-bigmodel/glm-4.6",
+                       "owned_by":  "z-ai",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "medium",
+                                                 "high",
+                                                 "xhigh",
+                                                 "max"
+                                             ]
+                   },
+                   {
+                       "provider":  "zhipu-bigmodel",
+                       "id":  "zhipu-bigmodel/glm-4.7",
+                       "owned_by":  "z-ai",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "medium",
+                                                 "high",
+                                                 "xhigh",
+                                                 "max"
+                                             ]
+                   },
+                   {
+                       "provider":  "zhipu-bigmodel",
+                       "id":  "zhipu-bigmodel/glm-5",
+                       "owned_by":  "z-ai",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "medium",
+                                                 "high",
+                                                 "xhigh",
+                                                 "max"
+                                             ]
+                   },
+                   {
+                       "provider":  "zhipu-bigmodel",
+                       "id":  "zhipu-bigmodel/glm-5-turbo",
+                       "owned_by":  "z-ai",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   },
+                   {
+                       "provider":  "zhipu-bigmodel",
+                       "id":  "zhipu-bigmodel/glm-5.1",
+                       "owned_by":  "z-ai",
+                       "reasoning_efforts":  [
+                                                 "low",
+                                                 "medium",
+                                                 "high",
+                                                 "xhigh",
+                                                 "max"
+                                             ]
+                   },
+                   {
+                       "provider":  "zhipu-bigmodel",
+                       "id":  "zhipu-bigmodel/glm-5.2",
+                       "owned_by":  "z-ai",
+                       "reasoning_efforts":  [
+
+                                             ]
+                   }
+               ],
+    "savetoken_tiers":  [
+                            {
+                                "health":  "UNKNOWN",
+                                "provider":  "openai",
+                                "candidate":  "gpt-5.6-sol",
+                                "tier":  "sol",
+                                "auth":  "oauth-codex"
+                            },
+                            {
+                                "health":  "UNKNOWN",
+                                "provider":  "openai",
+                                "candidate":  "gpt-5.6-terra",
+                                "tier":  "terra",
+                                "auth":  "oauth-codex"
+                            },
+                            {
+                                "health":  "UNKNOWN",
+                                "provider":  "openai",
+                                "candidate":  "gpt-5.6-luna",
+                                "tier":  "execution-luna",
+                                "auth":  "oauth-codex"
+                            },
+                            {
+                                "health":  "UNKNOWN",
+                                "provider":  "deepseek",
+                                "candidate":  "deepseek/deepseek-v4-flash",
+                                "tier":  "execution-deepseek",
+                                "auth":  "key"
+                            },
+                            {
+                                "health":  "UNKNOWN",
+                                "provider":  "zhipu-bigmodel",
+                                "candidate":  "zhipu-bigmodel/glm-5.2",
+                                "tier":  "glm-backup",
+                                "auth":  "key"
+                            }
+                        ],
+    "stop_conditions":  [
+                            "No real model requests sent in D-1",
+                            "No API keys or OAuth tokens read",
+                            "Provider health is UNKNOWN (model listing != invocation capability)"
+                        ]
+}

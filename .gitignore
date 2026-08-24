@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# read-only upstream (has its own git repo)
+work/
+
+# generated build artifacts (clean-room copies, package extraction, archives, manifests) — all rebuildable
+outputs/
+
+# secrets / local state
+.env
+.env.*
+*.log
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

@@ -1,0 +1,122 @@
+﻿{
+    "quality":  [
+                    {
+                        "capability":  "Quality Gate v0.1",
+                        "status":  "PRESENT"
+                    },
+                    {
+                        "capability":  "Structured contract validation",
+                        "status":  "PRESENT"
+                    },
+                    {
+                        "capability":  "Route admission evidence",
+                        "status":  "PRESENT"
+                    },
+                    {
+                        "capability":  "Privacy scan",
+                        "status":  "PRESENT"
+                    },
+                    {
+                        "capability":  "Package allowlist",
+                        "status":  "PRESENT"
+                    }
+                ],
+    "protocols":  [
+                      {
+                          "status":  "PRESENT",
+                          "capability":  "Responses API",
+                          "note":  "per-protocol parsing, native shaping, SSE via proxy adapter"
+                      },
+                      {
+                          "status":  "PRESENT",
+                          "capability":  "Chat Completions",
+                          "note":  "per-protocol parsing, native shaping"
+                      },
+                      {
+                          "status":  "PRESENT",
+                          "capability":  "Anthropic Messages",
+                          "note":  "per-protocol parsing, native shaping"
+                      },
+                      {
+                          "status":  "PARTIAL",
+                          "capability":  "SSE passthrough",
+                          "note":  "adapter consumes SSE; client passthrough not wired"
+                      },
+                      {
+                          "status":  "PARTIAL",
+                          "capability":  "Multi-turn tools",
+                          "note":  "single-turn verified; multi-turn not wired"
+                      },
+                      {
+                          "status":  "PRESENT",
+                          "capability":  "Streaming terminal states",
+                          "note":  "SSE classifier and terminal state detection"
+                      }
+                  ],
+    "integration":  [
+                        {
+                            "capability":  "CODEX_HOME isolation",
+                            "status":  "PRESENT"
+                        },
+                        {
+                            "capability":  "Atomic owned writes",
+                            "status":  "PRESENT"
+                        },
+                        {
+                            "capability":  "Ownership restore/uninstall",
+                            "status":  "PRESENT"
+                        },
+                        {
+                            "capability":  "CLI lifecycle",
+                            "status":  "PARTIAL"
+                        },
+                        {
+                            "capability":  "Service/shim",
+                            "status":  "NOT_TESTED"
+                        },
+                        {
+                            "capability":  "Cross-platform CI",
+                            "status":  "NOT_TESTED"
+                        }
+                    ],
+    "date":  "2026-08-11",
+    "routes":  [
+                   {
+                       "status":  "PRESENT",
+                       "evidence":  "Sprint 1; SaveToken full-chain verified",
+                       "model":  "gpt-5.6-sol",
+                       "route":  "Sol"
+                   },
+                   {
+                       "status":  "PRESENT",
+                       "evidence":  "Sprint 1; SaveToken full-chain verified",
+                       "model":  "gpt-5.6-terra",
+                       "route":  "Terra"
+                   },
+                   {
+                       "status":  "PRESENT",
+                       "evidence":  "Sprint 1; SaveToken full-chain verified",
+                       "model":  "gpt-5.6-luna",
+                       "route":  "Luna"
+                   },
+                   {
+                       "status":  "PRESENT",
+                       "evidence":  "D-3; Sprint 1; all calibrations",
+                       "model":  "deepseek-v4-flash",
+                       "route":  "DeepSeek"
+                   },
+                   {
+                       "status":  "PRESENT",
+                       "evidence":  "Sprint 1; GLM routing fix; full-chain verified",
+                       "model":  "glm-5.2",
+                       "route":  "GLM"
+                   }
+               ],
+    "unknown":  [
+                    "Real Provider OAuth/api-key validity",
+                    "Quota, cooldown, rate-limit state",
+                    "Upstream cancellation propagation",
+                    "Token/cost savings vs Sol baseline",
+                    "Cross-platform runtime behavior"
+                ]
+}

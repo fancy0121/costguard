@@ -1,0 +1,229 @@
+{
+  "date": "2026-08-24",
+  "status": "frozen-instrument-v2",
+  "instrumentVersion": "quality-token-v2-r1-r5",
+  "protocol": "Run every frozen task with one explicitly selected model and default effort; use identical input and acceptance for every compared model; aggregate only categories with at least two independent tasks.",
+  "changePolicy": "Frozen after R1-R5. Do not change prompts, acceptance, evaluator, or held-out cases in response to any model result.",
+  "tasks": [
+    {
+      "id": "EXT-01",
+      "category": "extraction",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "JSON string array containing only extracted names",
+      "input": "华为于 2024 年在深圳发布了 Mate 60 系列，任正非表示将持续投入基础研究。请提取文中出现的所有组织名与人物名。只输出 JSON 字符串数组，不要解释。",
+      "acceptance": { "type": "exact_set", "expected": ["华为", "任正非"] }
+    },
+    {
+      "id": "CLS-02",
+      "category": "classification",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "Eight labels in source order, preferably a JSON string array",
+      "input": "将以下标题逐条分类到 {科技,财经,体育,娱乐}：1) 央行下调存款准备金率 2) 新款折叠屏手机发布 3) 国足晋级亚洲杯四强 4) 某演员官宣婚讯 5) 美股三大指数收涨 6) 人工智能芯片出口新政 7) 马拉松选手刷新纪录 8) 票房破十亿。按原顺序只输出 8 个标签，优先使用 JSON 字符串数组，不要解释。",
+      "acceptance": { "type": "exact_list", "expected": ["财经", "科技", "体育", "娱乐", "财经", "科技", "体育", "娱乐"], "vocabulary": ["科技", "财经", "体育", "娱乐"] }
+    },
+    {
+      "id": "FMT-03",
+      "category": "transform",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "JSON array of objects with name, price, stock",
+      "input": "把下面的 Markdown 表格转成 JSON 数组（对象键为 name,price,stock）：\n| name | price | stock |\n| --- | --- | --- |\n| apple | 3.5 | 20 |\n| banana | 2.0 | 0 |\n只输出 JSON 数组，不要解释。",
+      "acceptance": { "type": "exact_json", "expected": [{ "name": "apple", "price": 3.5, "stock": 20 }, { "name": "banana", "price": 2.0, "stock": 0 }] }
+    },
+    {
+      "id": "SUM-04",
+      "category": "summarization",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "One Chinese summary sentence, at most 30 non-whitespace characters",
+      "input": "请用不超过 30 个汉字概括：2026 年 8 月，国产大飞机 C919 首次执飞上海到广州的商业航线，共搭载 158 名乘客，标志着国产干线客机正式进入规模化运营阶段。只输出摘要文本，不要标题或解释。",
+      "acceptance": { "type": "contains_and_bound", "mustContain": ["C919", "商业航线"], "maxChars": 30 }
+    },
+    {
+      "id": "SCH-05",
+      "category": "strict-json-object",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "One JSON object with exactly name, count, active",
+      "input": "返回一个合法 JSON 对象，只含键 name（字符串）、count（整数）、active（布尔）；具体值可自行选择。只输出 JSON，不要解释。",
+      "acceptance": { "type": "strict_schema", "properties": ["name", "count", "active"], "propertyTypes": { "name": "string", "count": "integer", "active": "boolean" }, "additionalProperties": false }
+    },
+    {
+      "id": "SCH-06",
+      "category": "strict-json-schema",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "One JSON object with exactly title and pages",
+      "input": "返回一个描述书籍的合法 JSON 对象，只含 title（字符串）和 pages（整数）两个键。只输出 JSON，不要解释。",
+      "acceptance": { "type": "strict_schema", "properties": ["title", "pages"], "propertyTypes": { "title": "string", "pages": "integer" }, "additionalProperties": false }
+    },
+    {
+      "id": "TOOL-07",
+      "category": "tool-single",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "One get_weather function call",
+      "input": "查询北京的天气。必须调用提供的 get_weather 工具，不要直接编造天气。",
+      "tools": [{ "type": "function", "name": "get_weather", "parameters": { "type": "object", "properties": { "city": { "type": "string" } }, "required": ["city"] } }],
+      "acceptance": { "type": "function_call", "name": "get_weather", "argsContain": { "city": "北京" } }
+    },
+    {
+      "id": "TOOL-08",
+      "category": "tool-multi-turn",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "get_weather call followed by a short final answer grounded in the supplied tool result",
+      "input": "查询巴黎的天气，并告诉我是否适合出门。必须先调用提供的 get_weather 工具，再依据工具结果回答。",
+      "tools": [{ "type": "function", "name": "get_weather", "parameters": { "type": "object", "properties": { "city": { "type": "string" } }, "required": ["city"] } }],
+      "acceptance": { "type": "final_answer_uses_tool", "toolResult": { "temperature_c": 20, "condition": "sunny" }, "mustContain": ["sunny"] }
+    },
+    {
+      "id": "CODE-09",
+      "category": "code-simple",
+      "expectedTier": "execution",
+      "expectedModel": "openai/gpt-5.6-luna",
+      "deliveryFormat": "TypeScript implementation of isPalindrome only",
+      "input": "用 TypeScript 实现函数 isPalindrome(s: string): boolean，忽略大小写与非字母数字字符。只输出函数实现，可以使用 TypeScript 代码围栏，不要解释。",
+      "acceptance": { "type": "local_tests", "functionName": "isPalindrome", "cases": [["A man, a plan, a canal: Panama", true], ["race a car", false], ["", true], ["0P", false]] }
+    },
+    {
+      "id": "CODE-10",
+      "category": "code-bug",
+      "expectedTier": "terra",
+      "expectedModel": "openai/gpt-5.6-terra",
+      "deliveryFormat": "One concise Chinese defect explanation naming the defective initialization and root cause",
+      "input": "以下函数计算数组最大值，但有缺陷：\nfunction max(a: number[]): number { let m = 0; for (const x of a) { if (x > m) m = x; } return m; }\n请指出缺陷行与根因。只输出一段简洁中文说明，不要提供重写后的完整函数。",
+      "acceptance": { "type": "identify_bug", "mustContain": ["m = 0", "负数", "初始化"] }
+    },
+    {
+      "id": "TEST-11",
+      "category": "test-design",
+      "expectedTier": "execution",
+      "expectedModel": "openai/gpt-5.6-luna",
+      "deliveryFormat": "A concise Chinese list of required test cases",
+      "input": "为 isPalindrome 设计测试用例，覆盖：回文、非回文、空串、忽略标点、忽略大小写。只输出测试用例列表，每项说明输入与期望结果。",
+      "acceptance": { "type": "required_cases", "required": ["回文", "非回文", "空串", "标点", "大小写"] }
+    },
+    {
+      "id": "TRA-12",
+      "category": "translation",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "Chinese translation only",
+      "input": "Translate to Chinese: The central bank cut the reserve requirement ratio to support lending. 只输出中文译文，不要解释或保留英文原句。",
+      "acceptance": { "type": "contains_and_no_english", "mustContain": ["央行", "存款准备金"], "noAsciiLetters": true }
+    },
+    {
+      "id": "EXT-13",
+      "category": "extraction",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "JSON string array containing only extracted names",
+      "input": "苹果公司在库比蒂诺举行开发者大会，蒂姆·库克介绍了新的端侧人工智能功能。请提取文中出现的所有组织名与人物名。只输出 JSON 字符串数组，不要解释。",
+      "acceptance": { "type": "exact_set", "expected": ["苹果公司", "蒂姆·库克"] }
+    },
+    {
+      "id": "CLS-14",
+      "category": "classification",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "Eight labels in source order, preferably a JSON string array",
+      "input": "将以下标题逐条分类到 {科技,财经,体育,娱乐}：1) 女排夺得联赛冠军 2) 歌手发布全新专辑 3) 上市公司季度利润增长 4) 量子计算芯片完成流片 5) 网球选手赢得大满贯 6) 导演公布新片阵容 7) 国际原油价格上涨 8) 国产操作系统发布更新。按原顺序只输出 8 个标签，优先使用 JSON 字符串数组，不要解释。",
+      "acceptance": { "type": "exact_list", "expected": ["体育", "娱乐", "财经", "科技", "体育", "娱乐", "财经", "科技"], "vocabulary": ["科技", "财经", "体育", "娱乐"] }
+    },
+    {
+      "id": "FMT-15",
+      "category": "transform",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "JSON array of objects with name, price, stock",
+      "input": "把下面的 Markdown 表格转成 JSON 数组（对象键为 name,price,stock）：\n| name | price | stock |\n| --- | --- | --- |\n| orange | 4.2 | 8 |\n| pear | 5.0 | 3 |\n只输出 JSON 数组，不要解释。",
+      "acceptance": { "type": "exact_json", "expected": [{ "name": "orange", "price": 4.2, "stock": 8 }, { "name": "pear", "price": 5.0, "stock": 3 }] }
+    },
+    {
+      "id": "SUM-16",
+      "category": "summarization",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "One Chinese summary sentence, at most 30 non-whitespace characters",
+      "input": "请用不超过 30 个汉字概括：嫦娥六号完成月球背面采样并携带样品返回地球，这是人类首次从月球背面获取样品。只输出摘要文本，不要标题或解释。",
+      "acceptance": { "type": "contains_and_bound", "mustContain": ["嫦娥六号", "月背采样"], "maxChars": 30 }
+    },
+    {
+      "id": "SCH-17",
+      "category": "strict-json-object",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "One JSON object with exactly title, items, archived",
+      "input": "返回一个合法 JSON 对象，只含键 title（字符串）、items（整数）、archived（布尔）；具体值可自行选择。只输出 JSON，不要解释。",
+      "acceptance": { "type": "strict_schema", "properties": ["title", "items", "archived"], "propertyTypes": { "title": "string", "items": "integer", "archived": "boolean" }, "additionalProperties": false }
+    },
+    {
+      "id": "SCH-18",
+      "category": "strict-json-schema",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "One JSON object with exactly sku and price",
+      "input": "返回一个描述商品的合法 JSON 对象，只含 sku（字符串）和 price（数字）两个键。只输出 JSON，不要解释。",
+      "acceptance": { "type": "strict_schema", "properties": ["sku", "price"], "propertyTypes": { "sku": "string", "price": "number" }, "additionalProperties": false }
+    },
+    {
+      "id": "TOOL-19",
+      "category": "tool-single",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "One get_weather function call",
+      "input": "查询上海的天气。必须调用提供的 get_weather 工具，不要直接编造天气。",
+      "tools": [{ "type": "function", "name": "get_weather", "parameters": { "type": "object", "properties": { "city": { "type": "string" } }, "required": ["city"] } }],
+      "acceptance": { "type": "function_call", "name": "get_weather", "argsContain": { "city": "上海" } }
+    },
+    {
+      "id": "TOOL-20",
+      "category": "tool-multi-turn",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "get_weather call followed by a short final answer grounded in the supplied tool result",
+      "input": "查询罗马的天气，并告诉我是否需要带伞。必须先调用提供的 get_weather 工具，再依据工具结果回答。",
+      "tools": [{ "type": "function", "name": "get_weather", "parameters": { "type": "object", "properties": { "city": { "type": "string" } }, "required": ["city"] } }],
+      "acceptance": { "type": "final_answer_uses_tool", "toolResult": { "temperature_c": 14, "condition": "rainy" }, "mustContain": ["rainy"] }
+    },
+    {
+      "id": "CODE-21",
+      "category": "code-simple",
+      "expectedTier": "execution",
+      "expectedModel": "openai/gpt-5.6-luna",
+      "deliveryFormat": "TypeScript implementation of clamp only",
+      "input": "用 TypeScript 实现函数 clamp(n: number, min: number, max: number): number，把 n 限制在闭区间 [min,max] 内。只输出函数实现，可以使用 TypeScript 代码围栏，不要解释。",
+      "acceptance": { "type": "local_tests", "functionName": "clamp", "cases": [[-1, 0, 10, 0], [5, 0, 10, 5], [11, 0, 10, 10], [3, 3, 3, 3]] }
+    },
+    {
+      "id": "CODE-22",
+      "category": "code-bug",
+      "expectedTier": "terra",
+      "expectedModel": "openai/gpt-5.6-terra",
+      "deliveryFormat": "One concise Chinese defect explanation naming the defective expression and root cause",
+      "input": "以下函数计算数组平均值，但有缺陷：\nfunction average(a: number[]): number { let sum = 0; for (const x of a) sum += x; return sum / a.length; }\n请指出缺陷表达式与根因。只输出一段简洁中文说明，不要提供重写后的完整函数。",
+      "acceptance": { "type": "identify_bug", "mustContain": ["a.length", "空数组", "除以零"] }
+    },
+    {
+      "id": "TEST-23",
+      "category": "test-design",
+      "expectedTier": "execution",
+      "expectedModel": "openai/gpt-5.6-luna",
+      "deliveryFormat": "A concise Chinese list of required test cases",
+      "input": "为 clamp(n,min,max) 设计测试用例，覆盖：下界、上界、区间内、低于下界、高于上界。只输出测试用例列表，每项说明输入与期望结果。",
+      "acceptance": { "type": "required_cases", "required": ["下界", "上界", "区间内", "低于下界", "高于上界"] }
+    },
+    {
+      "id": "TRA-24",
+      "category": "translation",
+      "expectedTier": "execution",
+      "expectedModel": "deepseek/deepseek-v4-flash",
+      "deliveryFormat": "Chinese translation only",
+      "input": "Translate to Chinese: The company will increase research and development investment and expand production capacity. 只输出中文译文，不要解释或保留英文原句。",
+      "acceptance": { "type": "contains_and_no_english", "mustContain": ["公司", "研发", "产能"], "noAsciiLetters": true }
+    }
+  ]
+}
