@@ -108,9 +108,9 @@ streaming/tools/cancellation, and quality/cost comparison remain `UNKNOWN` or
 
 ## 已验证 / 未验证
 
-已验证（有本地证据）：308 测试 + typecheck/lint/privacy/package 全绿；clean-room 可复现；路由分级与 fail-closed；Quality Gate v0.1 结构化校验；配置 ownership 与恢复保护；DeepSeek 全链路真实请求；Sol vs DeepSeek 冻结基准对比。
+已验证（有本地证据）：319 测试（74 文件）+ typecheck/lint/privacy/package 全绿；clean-room 可复现；路由分级与 fail-closed；托管 sidecar 生命周期编排、CLI 命令与零凭据 demo（fixture 级，demo 实测低风险路由 + 高风险 503 未降级）；Quality Gate v0.1 结构化校验；配置 ownership 与恢复保护；DeepSeek 全链路真实请求；Sol vs DeepSeek 冻结基准对比。
 
-未验证（UNKNOWN / NOT_TESTED）：Sol/Terra/Luna/GLM 的实时可用性与真实调用；原生 Codex 对注入配置的消费；Windows/macOS/Linux service/shim 与跨平台托管 CI；真实 Provider 的 401/403/429/5xx 与配额、取消上游传播；按账户实际账单的美元成本。
+未验证（UNKNOWN / NOT_TESTED）：真实 OpenCodex sidecar 的下载与启动（`installOpenCodexSidecar` 代码已实现并会真实 `bun add` + spawn，但测试仅以 fixture 编排验证，未真实执行过下载/启动）；Sol/Terra/Luna/GLM 的实时可用性与真实调用；原生 Codex 对注入配置的消费；Windows/macOS/Linux service/shim 与跨平台托管 CI；真实 Provider 的 401/403/429/5xx 与配额、取消上游传播；按账户实际账单的美元成本。
 
 ## 免责声明
 
