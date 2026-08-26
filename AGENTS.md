@@ -98,4 +98,4 @@
 
 ## CostGuard 自动模型路由（原 savetoken）
 
-按 [SAVETOKEN_SPEC.md](./SAVETOKEN_SPEC.md) 的冻结合同执行：Sol 只处理最高难度或堵点；Terra 处理中等复杂任务；Luna 与 DeepSeek 是平级执行层；智谱只作为最后低风险备用。所有 worker 的结果必须经过主代理独立检查和相关测试；模型或 Agent 身份未从运行时确认时，标记 `UNKNOWN`。
+按 [COSTGUARD_SPEC.md](./COSTGUARD_SPEC.md) 的冻结合同执行：Sol 只处理最高难度或堵点；Terra 处理中等复杂任务；Luna 与 DeepSeek 是平级执行层；智谱只作为最后低风险备用。所有 worker 的结果必须经过主代理独立检查和相关测试；模型或 Agent 身份未从运行时确认时，标记 `UNKNOWN`。

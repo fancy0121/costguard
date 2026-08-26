@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "activeName": "CostGuard",
+  "historicalName": "SaveToken",
+  "preservationRule": "Historical files remain byte-identical; this index is additive.",
+  "entries": [
+    {
+      "path": "docs/superpowers/evidence/2026-08-08-savetoken-stage-1-report.md",
+      "bytes": 5669,
+      "sha256": "2821df181551a3e16c6f324d569fcc1f6f398be0fc157779f86996c2f639fe7e"
+    },
+    {
+      "path": "docs/superpowers/evidence/2026-08-08-savetoken-stage-2-report.md",
+      "bytes": 6499,
+      "sha256": "576f660922cb15993b3023b132f4fa9feb95b1f664ab9726e19923090a9ccf22"
+    },
+    {
+      "path": "docs/superpowers/evidence/2026-08-09-savetoken-stage-3-report.md",
+      "bytes": 6267,
+      "sha256": "a466f3d41160728c7e5a5cfc8bcda393b071dfc7780029d660a8a5f330e5cf3e"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-calibration-2-effort-2026-08-10.md",
+      "bytes": 3586,
+      "sha256": "d2bac0abeaa9e241a2575d6c8fc36ac8059f1ba78f0118334eeae597e8e7f717"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-calibration-fixtures-2026-08-10.json",
+      "bytes": 3864,
+      "sha256": "26005bcd34486f3ea598c58033b0fd50b7a666f9fd62579fa6518ba230d4ae77"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-calibration-report-2026-08-10.md",
+      "bytes": 4024,
+      "sha256": "89a3b778e8855bfc339761cd1b7ab17631621a4911e3c44dff9a5091056e47bd"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-calibration-run-2026-08-10.json",
+      "bytes": 6474,
+      "sha256": "5a2cec7954f72e19d254257cd04d5ac16a340e9c3d88dfaf73a76266626bfff5"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-core-parity-sprint-1-report-2026-08-11.md",
+      "bytes": 2467,
+      "sha256": "e27921fa32145d7778ca3c5067ae6b58800d47597a2340fbda325d55cce1ef11"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-decision-calibration-fixtures-2026-08-10.json",
+      "bytes": 9141,
+      "sha256": "aebfd8863f9a61801596b74edd2f819a2dfbdf27c4698b49f5b1ac5cb2dd2c5c"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-decision-calibration-report-2026-08-10.md",
+      "bytes": 5176,
+      "sha256": "f7175c6252406cfb5b14d8579b615837edf11ac04deb6ed9adf7ebd782ee88ad"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-decision-calibration-run-2026-08-10.json",
+      "bytes": 12842,
+      "sha256": "27bcacd44915cabfc3e1f0e785256848735cb3ca49142a64b26cfad6317d0448"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-deepseek-benchmark-and-v4pro-2026-08-15.md",
+      "bytes": 3557,
+      "sha256": "10bf3ca7d6569462ce0a165ef2eaf72902a771ed6fe820b1e45558c22c70e33b"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-deepseek-benchmark-side-2026-08-15.json",
+      "bytes": 7165,
+      "sha256": "2df27804dc1ef14687201685a20a37558ab0131850c4992c5a03c1ea9e7121cb"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-deepseek-deep-verification-2026-08-15.json",
+      "bytes": 4930,
+      "sha256": "f04bf5640b7fa1583d919682019fd9214e74b5a7df73086504640a20897a0e00"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-deepseek-deep-verification-2026-08-15.md",
+      "bytes": 3730,
+      "sha256": "79d72149370ab188634087bbfa16924f3482c3712787a8620002b9495b6283a6"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-deepseek-v4-pro-probe-2026-08-15.json",
+      "bytes": 2562,
+      "sha256": "4a3a05ef34538d73b3bbde78ecd0c5ce16c3b0ff8c3228b19ac59c50d113db8e"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-full-conformance-checksums-2026-08-13.txt",
+      "bytes": 2207,
+      "sha256": "de86300f63752543876e89d7324e4fdfc7f8c213fd71a51d31898ffb43e3029c"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-full-conformance-final-2026-08-13.md",
+      "bytes": 11229,
+      "sha256": "6e0e7c820c00875181f30c873bbd000fea77194c536f7d240dcccde812900ba2"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-full-conformance-progress-2026-08-13.md",
+      "bytes": 4383,
+      "sha256": "a4cdbc2a4341d00cf6948c0a707e592ba720d45abaa1151893fe62e792027401"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-full-delivery-report-2026-08-11.md",
+      "bytes": 1953,
+      "sha256": "a2963b92a79d563b73db67f8516b8903244103b2ddec5c1cc83795c4d7f3ecf8"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-full-delivery-status-2026-08-11.md",
+      "bytes": 471,
+      "sha256": "e8158d2348dc9a8ccde786336c142224ad530ab909b0a9185728b8207e154597"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-full-parity-matrix-2026-08-11.json",
+      "bytes": 5136,
+      "sha256": "cb87041c67037267c3e1c3d0924d3dec9cd8a2883b38e156e93fbf641ec11851"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-mvp-capability-manifest-2026-08-10.json",
+      "bytes": 4970,
+      "sha256": "42b805bc1fd393399c8b7697fd276675880e464b10f21363d46029d6eab85c75"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-mvp-clean-room-2026-08-10.md",
+      "bytes": 1485,
+      "sha256": "61d4862895b1e10efd447e7fd0787992a8e3eedaf10ef327d29ab932b9816ae3"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-mvp-release-candidate-2026-08-10.md",
+      "bytes": 2220,
+      "sha256": "119985ef3d77f494d35764ee2d742174b2acbc49b57e860b14c7f13fba54e8f1"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-mvp-release-closure-2026-08-10.md",
+      "bytes": 4220,
+      "sha256": "b4d126c07ef57f1f35ca82e497de80d4c272d1f6689b518b3fc2ec9e3acde201"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-mvp-usage-2026-08-10.md",
+      "bytes": 2093,
+      "sha256": "df8d6ffa651d69125ec69e64456a4d2c25e266ed4a3eb941fa7097552caaf3d1"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-opencodex-parity-matrix.md",
+      "bytes": 24033,
+      "sha256": "5147830293aa21c4612f9f645337b3715a2213121590ca033e4d00eba673488d"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-phase-d1-provider-manifest.json",
+      "bytes": 14551,
+      "sha256": "da8683a1f9fbe02d0834fb9d467dbb7189a499d5970c461af475610c86c41efd"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-phase-d1-provider-preflight-2026-08-10.md",
+      "bytes": 4358,
+      "sha256": "32fc6d42d4c26036d2614a826ed8cba8b686f1f32122c33232ce4f3a7c49bf2e"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-phase-d2-deepseek-vslice-2026-08-10.md",
+      "bytes": 5527,
+      "sha256": "08004b3880e2b00cd4ddcf64446fab5a27abec66e72f3fa10e07b0f707c3680c"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-phase-d3-execution-wiring-2026-08-10.md",
+      "bytes": 4186,
+      "sha256": "ad4f8192cab2ba2e476206d25afeffb1d705a3b93e26905159769c9197bf1b27"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-phase-d4-runtime-matrix-2026-08-11.md",
+      "bytes": 6395,
+      "sha256": "86b10d7a61e35a332dc83cdc41a3087fe6889fadd0a53d16db0025aee7e87e66"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-phase-d5-proxy-route-completion-2026-08-11.md",
+      "bytes": 5337,
+      "sha256": "403fe6e39dbcb11e375db1422f76a6e71dbfc4d37e78b2cf1d4ff4a020c762a0"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-quality-gate-v0-1-report-2026-08-10.md",
+      "bytes": 3723,
+      "sha256": "5abe63f916a7cabb54315459144d2bcd154708816e5d9ca172714145c6dcd17e"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-quality-routing-benchmark-2026-08-13.json",
+      "bytes": 232,
+      "sha256": "bfcaceeb59d000b83c0bf8b2dd743f707d6fc36c7344e5604def8757deebcef1"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-quality-routing-benchmark-fixtures-2026-08-13.json",
+      "bytes": 4419,
+      "sha256": "6e48f919923dcc8398586b4171588d564ceeb708decc3af96f194a3b2de190f3"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-quality-token-benchmark-deepseek-deepseek-v4-flash-2026-08-24.json",
+      "bytes": 30908,
+      "sha256": "9871850eaafe67b2653307307d1ecaa84311e4ba332a362b4d59c66a0558a0ce"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-quality-token-benchmark-fixtures-2026-08-15.json",
+      "bytes": 5869,
+      "sha256": "50139ae5ad7829416e3d5874afb1807e03aeb85d70db0d47839771a96c50da3d"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-quality-token-benchmark-fixtures-v2-2026-08-24.json",
+      "bytes": 15405,
+      "sha256": "2afc592b93ef9ba1de8427ad3f87ee6e541b02cb6071bda9b4f63dd08c5e9666"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-quality-token-benchmark-gpt-5.6-sol-2026-08-24.json",
+      "bytes": 30298,
+      "sha256": "3dcd54af93b83b3a0ec5997db0d36954ae8701b464c4223092a7b79eb5c0ee46"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-quality-token-benchmark-harness-2026-08-24.md",
+      "bytes": 4566,
+      "sha256": "73efdecf07a1cca5020f93ba28e5ad3b34a3a9590b77760b8a0d5bf49503de49"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-quality-token-benchmark-instrument-v2-2026-08-24.json",
+      "bytes": 813,
+      "sha256": "2e7db25aa5e684fd059fe613bef936007e35055401dd473db096e3e278845278"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-quality-token-benchmark-instrument-v2-report-2026-08-24.md",
+      "bytes": 5500,
+      "sha256": "e8054ff2db4a62b38b153a315a0f7e08d4d727ef382bbc83a8ef20a9aaa73a76"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-real-provider-route-matrix-smoke-2026-08-13.json",
+      "bytes": 3279,
+      "sha256": "d8d5407ea31655b8b4dba67f09b4a66192324b5928eec9e78637fb8a0526443c"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-routing-gap-matrix.md",
+      "bytes": 6564,
+      "sha256": "a76a2ceacfe3c1f9230bdf18ee9e524fa8e4ef41e717dbef8cf36436f52d8494"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-runtime-smoke-matrix.md",
+      "bytes": 6128,
+      "sha256": "8f98fe8f492bfa2ba485aa164de54de809c97464c06bf960bdb6b50d4dcb2078"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-runtime-v1-audit-2026-08-12.md",
+      "bytes": 3630,
+      "sha256": "c8c668dcabb3d328358fbcaab8519bed53fcbdf0e25bdf34edd5843dea48b58c"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-runtime-v1-audit-corrections-2026-08-13.md",
+      "bytes": 8028,
+      "sha256": "63142f38b651222da1986f9bc336c27ca1678589c7c58c50cdee03d423f9896e"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-runtime-v1-evidence-repair-2-final-2026-08-13.md",
+      "bytes": 13796,
+      "sha256": "27908a03eff4f6b7478f0d1b6b01a89cca4c2ef17936b851d8785f6709747718"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-runtime-v1-rework-final-2026-08-12.md",
+      "bytes": 3612,
+      "sha256": "0fa21e0650482e4967ccce780e75251a74adb48308988038089b07c31637f4a7"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-sol-vs-deepseek-benchmark-report-2026-08-24.md",
+      "bytes": 6073,
+      "sha256": "a48fcb2a98864ec31d9806873f2c93ae20eddaf42463145b59353cab2b0fa91e"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-stage-2-change-manifest.json",
+      "bytes": 1444,
+      "sha256": "0da9cfa10db92b54d0c7f0fc55693378cc83eb207fc641003e2115df5167a4ae"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-stage3-final-parity-matrix.md",
+      "bytes": 7717,
+      "sha256": "108b3156d7a4b95a9586dbdb19afadef165b3bf7a745be36c990ed4252f2b0e4"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-stage3-gap-report.md",
+      "bytes": 3117,
+      "sha256": "c600548d0ebcd823e543aaf7e9802446b937c7daea5221c7b05478bc58d1f2d7"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-stage3-rework-acceptance-2026-08-09.md",
+      "bytes": 3475,
+      "sha256": "1c01cd2a5d37473e481e64ee6f9d0b594fc19e469062cf007ac1314fafe8c2d6"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-upstream-baseline.json",
+      "bytes": 8345,
+      "sha256": "04bc5ab445b9de1f840109c461809b821caff466681a55534cf33120a9ba6d97"
+    },
+    {
+      "path": "docs/superpowers/evidence/savetoken-upstream-conformance-matrix-2026-08-13.json",
+      "bytes": 10171,
+      "sha256": "e9b942fd3ed98c4f2bccc069c7884f3b52a2321c6ad42dd35feb6b2db02fe61c"
+    }
+  ]
+}
