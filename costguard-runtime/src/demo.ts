@@ -9,7 +9,7 @@ export type CostGuardDemoResult = {
   status: "PRESENT";
   notice: "演示，非真实 Provider";
   baseUrls: string[];
-  cases: Array<{ id: string; httpStatus: number; status: string; model?: string }>;
+  cases: Array<{ id: string; httpStatus: number; status: string; reason?: string; model?: string }>;
 };
 
 function fixtureAdapter(id: string, models: string[], tier: CostGuardTier): ProviderAdapter {
@@ -55,10 +55,15 @@ function signals(body: Record<string, unknown>): CostGuardTaskSignals | undefine
   return { text: "extract the title and date from each isolated record", isBatchOrRepetitive: true };
 }
 
-async function call(baseUrl: string, body: Record<string, unknown>): Promise<{ httpStatus: number; status: string; model?: string }> {
+async function call(baseUrl: string, body: Record<string, unknown>): Promise<{ httpStatus: number; status: string; reason?: string; model?: string }> {
   const response = await fetch(`${baseUrl}/v1/responses`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
   const value = await response.json() as Record<string, unknown>;
-  return { httpStatus: response.status, status: typeof value.status === "string" ? value.status : "UNKNOWN", ...(typeof value.model === "string" ? { model: value.model } : {}) };
+  return {
+    httpStatus: response.status,
+    status: typeof value.status === "string" ? value.status : "UNKNOWN",
+    ...(typeof value.reason === "string" ? { reason: value.reason } : {}),
+    ...(typeof value.model === "string" ? { model: value.model } : {}),
+  };
 }
 
 export async function runCostGuardDemo(): Promise<CostGuardDemoResult> {

@@ -64,7 +64,7 @@ test("demo is credential-free, uses loopback runtime, and proves high-risk no-do
   expect(result.notice).toBe("演示，非真实 Provider");
   expect(result.baseUrls.every((url) => new URL(url).hostname === "127.0.0.1")).toBe(true);
   expect(result.cases).toEqual(expect.arrayContaining([
-    expect.objectContaining({ id: "high-risk-no-downgrade", httpStatus: 503, status: "UNKNOWN" }),
+    expect.objectContaining({ id: "high-risk-no-downgrade", httpStatus: 503, status: "UNKNOWN", reason: "task-tier-candidate-mismatch" }),
     expect.objectContaining({ id: "low-risk-execution", httpStatus: 200, status: "completed" }),
   ]));
   expect(JSON.stringify(result)).not.toMatch(/api[_-]?key|cookie|private[_-]?key|bearer\s+|token["']?\s*:/i);

@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { kill } from "node:process";
+import { createServer } from "node:net";
 import { lstat, mkdir, readFile, rename, rm, unlink, writeFile } from "node:fs/promises";
 import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 
@@ -106,7 +107,8 @@ async function readProcessState(home: string): Promise<ProcessState | undefined>
   if (!(await isOwnedJson(path))) return undefined;
   try {
     const value = JSON.parse(await readFile(path, "utf8")) as Partial<ProcessState>;
-    return Number.isSafeInteger(value.pid) && Number.isInteger(value.port) ? value as ProcessState : undefined;
+    if (typeof value.pid !== "number" || !Number.isSafeInteger(value.pid) || value.pid <= 0 || typeof value.port !== "number" || !Number.isInteger(value.port)) return undefined;
+    return value as ProcessState;
   } catch { return undefined; }
 }
 
@@ -121,7 +123,15 @@ export async function inspectOpenCodexSidecar(home: string): Promise<{ status: "
   return live(state.pid) ? { status: "PRESENT", installed: true, running: true, port: state.port } : { status: "UNKNOWN", installed: true, running: false, failClosed: true, reason: "sidecar-state-stale", port: state.port };
 }
 
-async function defaultPortInUse(port: number): Promise<boolean> { try { await fetch(`http://127.0.0.1:${port}/healthz`, { signal: AbortSignal.timeout(150) }); return true; } catch { return false; } }
+async function defaultPortInUse(port: number): Promise<boolean> {
+  return await new Promise<boolean>((resolve) => {
+    const server = createServer();
+    server.unref();
+    server.once("error", () => resolve(true));
+    server.once("listening", () => { server.close(() => resolve(false)); });
+    server.listen(port, "127.0.0.1");
+  });
+}
 async function waitFor(check: () => boolean | Promise<boolean>, timeoutMs: number): Promise<boolean> { const end = Date.now() + timeoutMs; while (Date.now() < end) { if (await check()) return true; await Bun.sleep(25); } return check(); }
 
 export async function healthOpenCodexSidecar(port: number, fetchImpl: (input: string | URL | Request, init?: RequestInit) => Promise<Response> = fetch): Promise<{ status: "PRESENT"; httpStatus: 200 } | Failure> {
@@ -139,6 +149,7 @@ export async function startOpenCodexSidecar(options: { home: string; port: numbe
   }
   if (await (options.portInUse ?? defaultPortInUse)(options.port)) return { status: "UNKNOWN", failClosed: true, reason: "sidecar-port-in-use" };
   try {
+    await assertNoReparsePoints(join(packageRoot(options.home), manifest.entrypoint), options.home);
     await writeOwnedJson(manifestPath(options.home), { ...manifest, activated: true }, options.home);
     const child = Bun.spawn({ cmd: [process.execPath, join(packageRoot(options.home), manifest.entrypoint), "start", "--port", String(options.port)], env: { ...process.env }, stdout: "ignore", stderr: "ignore", detached: true });
     if (!child.pid) return { status: "UNKNOWN", failClosed: true, reason: "sidecar-spawn-failed" };
@@ -168,22 +179,30 @@ export async function stopOpenCodexSidecar(home: string, timeoutMs = 3_000): Pro
 async function defaultCommandRunner(args: string[]): Promise<number> { const child = Bun.spawn({ cmd: args, stdout: "ignore", stderr: "ignore", env: { ...process.env } }); return child.exited; }
 
 export async function restoreOpenCodexSidecar(home: string, run: SidecarCommandRunner = defaultCommandRunner): Promise<Present | Failure> {
-  const manifest = await readManifest(home);
-  if (!manifest) return { status: "UNKNOWN", failClosed: true, reason: "sidecar-half-installed" };
-  if (!manifest.activated) return { status: "PRESENT" };
-  if (await run([process.execPath, join(packageRoot(home), manifest.entrypoint), "restore"]) !== 0) return { status: "UNKNOWN", failClosed: true, reason: "sidecar-restore-failed" };
-  await writeOwnedJson(manifestPath(home), { ...manifest, activated: false }, home);
-  return { status: "PRESENT" };
+  try {
+    const manifest = await readManifest(home);
+    if (!manifest) return { status: "UNKNOWN", failClosed: true, reason: "sidecar-half-installed" };
+    if (!manifest.activated) return { status: "PRESENT" };
+    if (await run([process.execPath, join(packageRoot(home), manifest.entrypoint), "restore"]) !== 0) return { status: "UNKNOWN", failClosed: true, reason: "sidecar-restore-failed" };
+    await writeOwnedJson(manifestPath(home), { ...manifest, activated: false }, home);
+    return { status: "PRESENT" };
+  } catch {
+    return { status: "UNKNOWN", failClosed: true, reason: "sidecar-restore-failed" };
+  }
 }
 
 export async function uninstallOpenCodexSidecar(home: string, run: SidecarCommandRunner = defaultCommandRunner): Promise<Present | Failure> {
-  const inspection = await inspectOpenCodexSidecar(home);
-  if (inspection.status !== "PRESENT" || !inspection.installed || inspection.running) return { status: "UNKNOWN", failClosed: true, reason: "sidecar-uninstall-blocked" };
-  const restored = await restoreOpenCodexSidecar(home, run);
-  if (restored.status !== "PRESENT") return restored;
-  if (!(await isOwnedJson(manifestPath(home)))) return { status: "UNKNOWN", failClosed: true, reason: "sidecar-uninstall-blocked" };
-  await assertNoReparsePoints(packageRoot(home), home);
-  await rm(packageRoot(home), { recursive: true, force: true });
-  await removeOwnedJson(manifestPath(home));
-  return { status: "PRESENT" };
+  try {
+    const inspection = await inspectOpenCodexSidecar(home);
+    if (inspection.status !== "PRESENT" || !inspection.installed || inspection.running) return { status: "UNKNOWN", failClosed: true, reason: "sidecar-uninstall-blocked" };
+    const restored = await restoreOpenCodexSidecar(home, run);
+    if (restored.status !== "PRESENT") return restored;
+    if (!(await isOwnedJson(manifestPath(home)))) return { status: "UNKNOWN", failClosed: true, reason: "sidecar-uninstall-blocked" };
+    await assertNoReparsePoints(packageRoot(home), home);
+    await rm(packageRoot(home), { recursive: true, force: true });
+    await removeOwnedJson(manifestPath(home));
+    return { status: "PRESENT" };
+  } catch {
+    return { status: "UNKNOWN", failClosed: true, reason: "sidecar-uninstall-blocked" };
+  }
 }
