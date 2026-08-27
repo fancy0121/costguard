@@ -38,7 +38,7 @@ async function state(home: string): Promise<ProcessState | undefined> {
   try {
     const raw = await readFile(statePath(home), "utf8");
     const parsed = JSON.parse(raw) as Record<string, unknown>;
-    return typeof parsed.pid === "number" && Number.isInteger(parsed.pid) && typeof parsed.port === "number" && Number.isInteger(parsed.port) ? { pid: parsed.pid, port: parsed.port } : undefined;
+    return typeof parsed.pid === "number" && Number.isInteger(parsed.pid) && parsed.pid > 0 && typeof parsed.port === "number" && Number.isInteger(parsed.port) ? { pid: parsed.pid, port: parsed.port } : undefined;
   } catch { return undefined; }
 }
 

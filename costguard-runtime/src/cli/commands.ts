@@ -50,7 +50,12 @@ export async function runCli(args: string[], request: CliRequest): Promise<unkno
 export function renderCliResult(args: string[], value: unknown): string {
   if (args.includes("--json")) return JSON.stringify(value);
   if (typeof value === "object" && value !== null && "status" in value) {
-    return `status: ${String((value as { status: unknown }).status)}`;
+    const v = value as Record<string, unknown>;
+    const lines = [`status: ${String(v.status)}`];
+    if (typeof v.notice === "string") lines.push(`notice: ${v.notice}`);
+    if (typeof v.reason === "string") lines.push(`reason: ${v.reason}`);
+    if (Array.isArray(v.cases)) lines.push(`cases: ${JSON.stringify(v.cases)}`);
+    return lines.join("\n");
   }
   return JSON.stringify(value);
 }
